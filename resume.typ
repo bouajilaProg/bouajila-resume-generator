@@ -20,3 +20,13 @@
   Dedicated and detail-oriented Software Engineer with a passion for building scalable web applications. Experienced in modern JavaScript frameworks and cloud architecture. Proven track record of collaborating in agile teams to deliver high-quality software solutions.
 ]
 
+#section("Education")
+#education(
+  degreeType: "BS",
+  degreeName: "Bachelor in Computer Science",
+  institution: "Institute of Mathematics and Computer Science of Monastir (ISIMM)",
+  startDate: "Sept 2022",
+  endDate: "June 2025",
+  keywords: ("Algorithms", "Data Structures", "C/C++", "Java", "SQL")
+)
+

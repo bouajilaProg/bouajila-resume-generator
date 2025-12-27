@@ -39,3 +39,19 @@
   text(size: 9pt, fill: rgb("#444444"))[#content]
 }
 
+#let education(degreeType: "", degreeName: "", institution: "", startDate: "", endDate: "", keywords: ()) = {
+  v(2pt)
+  grid(
+    columns: (1fr, auto),
+    [
+      *#degreeType* #institution \
+      #text(size: 9pt, fill: rgb("#555555"))[#degreeName]
+      #if keywords.len() > 0 {
+        v(-2pt)
+        text(size: 8pt, fill: primary-color.lighten(20%), weight: 500)[Key Skills: #keywords.join(", ")]
+      }
+    ],
+    [#text(size: 9pt, fill: rgb("#555555"))[#startDate – #endDate]]
+  )
+}
+
