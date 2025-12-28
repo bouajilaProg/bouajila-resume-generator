@@ -1,7 +1,5 @@
 #import "lib.typ": *
 
-#set page(paper: "a4", margin: (x: 1.5cm, y: 1.5cm))
-#set text(font: "Inter", size: 10pt, fill: rgb("#333333"))
 
 #header(
   "Bouajila Mohamed Yessine",
