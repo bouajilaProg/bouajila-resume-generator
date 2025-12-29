@@ -140,3 +140,23 @@
   v(2pt)
   text(items.join(", "), size: size-body)
 }
+
+#let Extracurr(title: "", description: [], startDate: none,endDate:none ) = {
+  v(item-spacing)
+  grid(
+    columns: (1fr, auto),
+    [
+      *#title*
+      #v(-4pt)
+      #text(size: size-body, fill: text-dark)[
+        #set list(indent: 6pt, marker: [•], spacing: 4pt)
+        #description
+      ]
+      #v(-4pt)
+    ],
+    align(right)[
+          #text(size: size-tiny, fill: text-light)[#startDate – #(if endDate == none or endDate == "" { "Present" } else { endDate })]
+]
+  )
+}
+

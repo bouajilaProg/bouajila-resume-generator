@@ -85,12 +85,6 @@
 )
 
 #certification(
-  "Intro to Git and GitHub",
-  "Google",
-  "Aug 2024"
-)
-
-#certification(
   "Operating Systems and You Becoming a Power User",
   "Google",
   "Aug 2024"
@@ -108,7 +102,18 @@
   "Aug 2024"
 )
 
+#section("Extracurricular")
+#Extracurr(title: "Chairman of the Code Bey Isimm",
+description: [
+  - Managed training programs for members and new students.,
+  - Secured funding and sponsorships for events and workshops.
+],
+startDate: "Oct 2023",
+endDate: "June 2024")
+
 
 #section("Hobbies")
 #hobbies(items: ("Photography", "Hiking", "Cooking", "Chess"))
+
+
 
