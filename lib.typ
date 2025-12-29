@@ -13,7 +13,7 @@
 #let header(name, contacts) = {
   set align(center)
   v(2pt)
-  text(font: font-header, fill: primary-color, weight: 700, size: size-name)[#name]
+  text(font: font-header, fill: text-dark, weight: 700, size: size-name)[#name]
   v(header-v-offset) 
   block(width: 100%, align(center)[
     #contacts.map(contact => {
@@ -25,7 +25,7 @@
           ))
         )
       ]
-    }).join(h(2pt) + text(fill: gray.lighten(60%), size: size-tiny)[|] + h(2pt))
+    }).join(h(2pt) + text(fill: primary-color, size: size-tiny)[|] + h(2pt))
   ])
 }
 
@@ -155,7 +155,7 @@
       #v(-4pt)
     ],
     align(right)[
-          #text(size: size-tiny, fill: text-light)[#startDate – #(if endDate == none or endDate == "" { "Present" } else { endDate })]
+          #text(size: size-tiny, fill: text-dark)[#startDate – #(if endDate == none or endDate == "" { "Present" } else { endDate })]
 ]
   )
 }
