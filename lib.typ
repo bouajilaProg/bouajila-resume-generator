@@ -116,8 +116,8 @@
   )
 }
 
+// skills
 #let skill_item(category: "", items: ()) = {
-  v(2pt)
   grid(
     columns: (80pt, 1fr),
     text(weight: 600, size: size-body)[#category:],
@@ -126,7 +126,14 @@
 }
 
 #let certification(name, issuing, date) = {
-  table(
+#let skills_group(..items) = {
+  stack(
+    dir: ttb,
+    spacing: 4pt,
+    ..items
+  )
+}
+
     columns: (1fr, auto),
     inset: (y: 2pt, x: 0pt),
     stroke: none,          

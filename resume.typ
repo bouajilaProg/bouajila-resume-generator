@@ -54,24 +54,23 @@
 
 #section("Skills")
 
-#skill_item(
-  category: "Dev Languages",
-  items: ("JavaScript", "TypeScript", "SQL", "Python", "tailwind", "Java", "HTML", "C", "PHP", "C#")
-)
-
-#skill_item(
-  category: "Technologies",
-  items: ("React", "Next.js", "Express", "Node", "PostgreSQL", "Docker", "Git", "Linux", "YOLO", "Mongodb", "Dotnet", "Unity")
-)
-
-#skill_item(
-  category: "Soft Skills",
-  items: ("Leadership", "Listening", "Problem Solving", "Critical Thinking")
-)
-
-#skill_item(
-  category: "Languages",
-  items: ("english(upper-intermediate)","french(intermediate)","arabic(native)")
+#skills_group(
+  skill_item(
+    category: "Dev Languages",
+    items: ("JavaScript", "TypeScript", "SQL", "Python", "tailwind", "Java", "HTML", "C", "PHP", "C#")
+  ),
+  skill_item(
+    category: "Technologies",
+    items: ("React", "Next.js", "Express", "Node", "PostgreSQL", "Docker", "Git", "Linux", "YOLO", "Mongodb", "Dotnet", "Unity")
+  ),
+  skill_item(
+    category: "Soft Skills",
+    items: ("Leadership", "Listening", "Problem Solving", "Critical Thinking")
+  ),
+  skill_item(
+    category: "Languages",
+    items: ("English (Upper-Intermediate)", "French (Intermediate)", "Arabic (Native)")
+  )
 )
 
 
