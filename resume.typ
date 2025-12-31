@@ -1,5 +1,6 @@
 #import "lib.typ": *
 
+#set text(font: font-main, size: size-body, fill: text-dark)
 
 #header(
   "Bouajila Mohamed Yessine",

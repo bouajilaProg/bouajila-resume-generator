@@ -6,14 +6,15 @@
   margin: page-margins,
   paper: "us-letter", 
 )
-#set text(font: font-body, size: size-body, fill: text-dark)
+
 
 // --- Functions ---
 
 #let header(name, contacts) = {
   set align(center)
   v(2pt)
-  text(font: font-header, fill: text-dark, weight: 700, size: size-name)[#name]
+  // Removed font-header, now uses the global font-main
+  text(fill: text-dark, weight: 700, size: size-name)[#name]
   v(header-v-offset) 
   block(width: 100%, align(center)[
     #contacts.map(contact => {
