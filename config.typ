@@ -6,8 +6,8 @@
 
 // --- Fonts ---
 // Change these strings to the fonts installed on your system
-#let font-header = "inter" 
-#let font-body = "inter"
+#let font-header = "fira sans" 
+#let font-body = "fira sans"
 
 // --- Sizes ---
 #let size-name = 22pt
