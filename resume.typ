@@ -3,7 +3,7 @@
 #set text(font: font-main, size: size-body, fill: text-dark)
 
 #header(
-  "Bouajila Mohamed Yessine",
+  "Mohamed Yessine Bouajila",
   (
     (type: "location", text: "Bizerte, Tunisia"),
     (type: "email",    text: "bouajilamedyessine@gmail.com", link: "mailto:bouajilamedyessine@gmail.com"),
@@ -15,84 +15,74 @@
 )
 
 #section("Profile")
-#profile[
+#paragraph[
   Dedicated and detail-oriented Software Engineer with a passion for building scalable web applications. Experienced in modern JavaScript frameworks and cloud architecture. Proven track record of collaborating in agile teams to deliver high-quality software solutions.
 ]
 
 #section("Education")
-#education(
-  degreeType: "BS",
-  degreeName: "Bachelor in Computer Science",
-  institution: "Institute of Mathematics and Computer Science of Monastir (ISIMM)",
-  startDate: "Sept 2022",
-  endDate: "June 2025",
-  keywords: ("Algorithms", "Data Structures", "C/C++", "Java", "SQL")
+#experience(
+  title: "Institute of Mathematics and Computer Science of Monastir (ISIMM)",
+  titleRole: "BS in Computer Science",
+  location: "Monastir, Tunisia",
+  date: "Sept 2022 – June 2025",
+  description: ("Focused on core engineering principles and software development."),
+  tags: ("Algorithms", "Data Structures", "C/C++", "Java", "SQL")
 )
 
 #section("Experience")
 #experience(
-  company: "Tech Solutions",
-  role: "Fullstack Intern",
-  location: "Tunis, Tunisia",
-  startDate: "June 2024",
-  endDate: none,
-  summary: "Developed a real-time dashboard using React and Node.js.",
-  keywords: ("React", "Node.js", "PostgreSQL")
+  title: "Google",
+  titleRole: "Software Engineer",
+  location: "Mountain View, CA",
+  date: "2022 – Present",
+  description: (
+    "- Developed cool features",
+    "- Fixed many bugs",
+  ),
+  tags: ("Python", "Typst", "Rust")
 )
 
 #section("Projects")
-#project(
+#experience(
   title: "GreenBoard",
-  projectLink: "https://greenboard.tn",
-  repoLink: "https://github.com/bouajilaProg/greenboard",
-  tools: "React, PostgreSQL, Drizzle ORM, HTML, Tailwind CSS, Git, Vercel, Resend",
-  description: [
-    - Developed a full-stack web platform for GreenBoard venture.
-    - Implemented a client-facing system for requesting custom PCB hardware.
-    - Deployed the platform on Vercel and integrated transactional email workflows.
-  ]
+  titleRole: "Full-stack Developer",
+  linkUrl: "https://greenboard.tn",
+  description: (
+    "- Developed a full-stack web platform for GreenBoard venture.",
+    "- Implemented a client-facing system for requesting custom PCB hardware.",
+    "- Deployed the platform on Vercel and integrated transactional email workflows.",
+  ),
+  tags: ("React", "PostgreSQL", "Drizzle ORM", "Tailwind CSS", "Vercel")
 )
 
 #section("Skills")
+#one_liners((
+  [*Dev Languages:* #("JavaScript", "TypeScript", "SQL", "Python", "Java", "C").join(", ")],
+  [*Technologies:* #("React", "Next.js", "Express", "Node", "PostgreSQL", "Docker", "Git").join(", ")],
+  [*Soft Skills:* #("Leadership", "Listening", "Problem Solving", "Critical Thinking").join(", ")],
+  [*Languages:* #("English (Upper-Intermediate)", "French (Intermediate)", "Arabic (Native)").join(", ")]
+))
 
-#skills_group(
-  skill_item(
-    category: "Dev Languages",
-    items: ("JavaScript", "TypeScript", "SQL", "Python", "tailwind", "Java", "HTML", "C", "PHP", "C#")
-  ),
-  skill_item(
-    category: "Technologies",
-    items: ("React", "Next.js", "Express", "Node", "PostgreSQL", "Docker", "Git", "Linux", "YOLO", "Mongodb", "Dotnet", "Unity")
-  ),
-  skill_item(
-    category: "Soft Skills",
-    items: ("Leadership", "Listening", "Problem Solving", "Critical Thinking")
-  ),
-  skill_item(
-    category: "Languages",
-    items: ("English (Upper-Intermediate)", "French (Intermediate)", "Arabic (Native)")
+#section("Certifications")
+#one_liners((
+  (text: "Foundations of Project Management (Google)", date: "Sept 2025"),
+  (text: "Operating Systems and You Becoming a Power User (Google)", date: "Aug 2024"),
+  (text: "The Bits and Bytes of Computer Networking (Google)", date: "Aug 2024"),
+  (text: "Technical Support Fundamentals (Google)", date: "Aug 2024"),
+))
+
+#section("Extracurricular")
+#experience(
+  title: "Code Bey Isimm",
+  titleRole: "Chairman",
+  date: "Oct 2023 – June 2024",
+  description: (
+    "- Managed training programs for members and new students.",
+    "- Secured funding and sponsorships for events and workshops.",
   )
 )
-#section("Certifications")
-
-#certifications_group(
-  cert_item("Foundations of Project Management", "Google", "Sept 2025"),
-  cert_item("Operating Systems and You Becoming a Power User", "Google", "Aug 2024"),
-  cert_item("The Bits and Bytes of Computer Networking", "Google", "Aug 2024"),
-  cert_item("Technical Support Fundamentals", "Google", "Aug 2024"),
-)
-#section("Extracurricular")
-#Extracurr(title: "Chairman of the Code Bey Isimm",
-description: [
-  - Managed training programs for members and new students.,
-  - Secured funding and sponsorships for events and workshops.
-],
-startDate: "Oct 2023",
-endDate: "June 2024")
-
 
 #section("Hobbies")
-#hobbies(items: ("Photography", "Hiking", "Cooking", "Chess"))
-
-
-
+#one_liners((
+  ("Photography, Hiking, Cooking, Chess"),
+))
