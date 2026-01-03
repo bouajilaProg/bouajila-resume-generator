@@ -1,0 +1,10 @@
+  "name": "resumeMaker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "keywords": [],
+  "author": "bouajila",
+  "license": "ISC",
+  "packageManager": "pnpm@10.25.0",
+}
