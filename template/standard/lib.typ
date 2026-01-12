@@ -1,4 +1,4 @@
-#import "../../build/config.typ": *
+#import "config.typ": *
 #import "../commun/icons/icons.typ": icon
 
 // --- Page Setup ---
