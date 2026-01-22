@@ -11,7 +11,12 @@ function testBlocks() {
     .setBase()
     .setHeader(mockResume?.personalInfo?.name, mockResume?.personalInfo?.contact)
     .addProfile(mockResume?.personalInfo?.description)
-    .addExperience(mockResume.experiences);
+    .addExperience(mockResume.experiences)
+    .addEducations(mockResume.educations)
+    .addProjects(mockResume.projects)
+    .addSkills(mockResume.skills)
+    .addCertifications([])
+    .addExtracurriculars(mockResume.extracurriculars);
 
   const resumeString = builder.build();
   //write to file for debugging
