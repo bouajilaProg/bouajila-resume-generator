@@ -1,6 +1,7 @@
 import { Contact } from "../../../types/personalInfo.type";
 import { WorkExperience } from "../../../types/experience.type";
 import { EducationItem } from "../../../types/education.type";
+import { Project } from "../../../types/project.type";
 import * as blocks from "../blocks/";
 
 export class ResumeBuilder {
@@ -46,6 +47,16 @@ export class ResumeBuilder {
     this.parts.push(blocks.sectionTitle("Education"));
     educations!.forEach(edu => {
       this.parts.push(blocks.EducationBlock(edu));
+    });
+    return this;
+  }
+
+  addProjects(projects?: Project[]) {
+    if (this.skipIfNull(projects)) return this;
+
+    this.parts.push(blocks.sectionTitle("Projects"));
+    projects!.forEach(proj => {
+      this.parts.push(blocks.ProjectBlock(proj));
     });
     return this;
   }
