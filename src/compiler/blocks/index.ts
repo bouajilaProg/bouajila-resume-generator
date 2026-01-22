@@ -6,4 +6,5 @@ export * from "./education";
 export * from "./project";
 export * from "./skills";
 export * from "./certification";
+export * from "./extraCurr";
 export * from "./sectionTitle";

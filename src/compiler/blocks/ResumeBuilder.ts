@@ -4,6 +4,7 @@ import { EducationItem } from "../../../types/education.type";
 import { Project } from "../../../types/project.type";
 import { Skills } from "../../../types/skills.type";
 import { Certification } from "../../../types/certif.type";
+import { ExtraCurricularActivity } from "../../../types/extraCurr.type";
 import * as blocks from "../blocks/";
 
 export class ResumeBuilder {
@@ -78,6 +79,15 @@ export class ResumeBuilder {
     certifications!.forEach(cert => {
       this.parts.push(blocks.CertificationBlock(cert));
     });
+    return this;
+  }
+
+  addExtracurriculars(extracurriculars?: ExtraCurricularActivity[]) {
+    if (this.skipIfNull(extracurriculars) || extracurriculars!.length === 0) return this;
+    this.parts.push(blocks.sectionTitle("Extracurriculars"));
+    const activityItems = extracurriculars!.map(act => blocks.ExtraCurrBlock(act));
+    const itemsStr = activityItems.length === 1 ? `${activityItems[0]},` : activityItems.join("\n");
+    this.parts.push(itemsStr);
     return this;
   }
 
