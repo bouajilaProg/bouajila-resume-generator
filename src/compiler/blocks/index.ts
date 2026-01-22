@@ -5,4 +5,5 @@ export * from "./experience";
 export * from "./education";
 export * from "./project";
 export * from "./skills";
+export * from "./certification";
 export * from "./sectionTitle";
