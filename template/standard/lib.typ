@@ -42,7 +42,6 @@
   )
   v(4pt)
 }
-
 // --- 3. Experience Item ---
 #let experience(
   title: "", 
@@ -54,52 +53,49 @@
   tags: ()
 ) = {
   v(item-spacing + 2pt, weak: true)
-  pad(left: 8pt)[
-    #grid(
-      columns: (1fr, auto),
-      stack(dir: ttb, spacing: 4pt,
-        [*#title* #h(5pt) #text(fill: text-medium)[#titleRole]],
-        {
-          let desc-items = if type(description) == str { (description,) } else { description }
-          if desc-items.len() == 1 {
-            v(1pt)
-            text(size: size-body, fill: text-dark)[#desc-items.at(0)]
-          } else if desc-items.len() > 1 {
-            set list(indent: 8pt, marker: [•], spacing: 5pt)
-            text(size: size-body, fill: text-dark)[
-              #for item in desc-items {
-                let clean-item = if type(item) == str { item.trim("-").trim() } else { item }
-                list.item(clean-item)
-              }
-            ]
-          }
-        },
-        if tags.len() > 0 {
-          v(2pt)
-          text(size: size-body, fill: primary-color.lighten(10%))[
-            *#if type(tags) == str { tags } else { tags.join(", ") }*
+  grid(
+    columns: (1fr, auto),
+    gutter: 5pt, 
+    stack(dir: ttb, spacing: 4pt,
+      [*#title* #h(5pt) #text(fill: text-medium)[#titleRole]],
+      {
+        let desc-items = if type(description) == str { (description,) } else { description }
+        if desc-items.len() == 1 {
+          v(1pt)
+          text(size: size-body, fill: text-dark)[#desc-items.at(0)]
+        } else if desc-items.len() > 1 {
+          set list(indent: 8pt, marker: [•], spacing: 5pt)
+          text(size: size-body, fill: text-dark)[
+            #for item in desc-items {
+              let clean-item = if type(item) == str { item.trim("-").trim() } else { item }
+              list.item(clean-item)
+            }
           ]
         }
-      ),
-      align(right)[
-        #set text(size: size-tiny)
-        #stack(
-          dir: ttb,
-          spacing: 3pt,
-          if location != none { text(weight: 600, fill: text-dark)[#location] },
-          if date != none { text(fill: text-medium)[#date] },
-          if linkUrl != none {
-            let displayLink = linkUrl.replace("https://", "").replace("http://", "")
-            text(fill: primary-color)[#link(linkUrl)[#displayLink]]
-          }
-        )
-      ]
-    )
-  ]
+      },
+      if tags.len() > 0 {
+        v(2pt)
+        text(size: size-body, fill: primary-color.lighten(10%))[
+          *#if type(tags) == str { tags } else { tags.join(", ") }*
+        ]
+      }
+    ),
+    align(right)[
+      #set text(size: size-tiny)
+      #stack(
+        dir: ttb,
+        spacing: 3pt,
+        if location != none { text(weight: 600, fill: text-dark)[#location] },
+        if date != none { text(fill: text-medium)[#date] },
+        if linkUrl != none {
+          let displayLink = linkUrl.replace("https://", "").replace("http://", "")
+          text(fill: primary-color)[#link(linkUrl)[#displayLink]]
+        }
+      )
+    ]
+  )
   v(2pt)
-}
-
-// --- 4. Paragraph Item ---
+}// --- 4. Paragraph Item ---
 #let paragraph(content) = {
   pad(left: 8pt)[
     #set par(justify: true)
