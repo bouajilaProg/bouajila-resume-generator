@@ -1,4 +1,5 @@
 import { Contact } from "../../../types/personalInfo.type";
+import { WorkExperience } from "../../../types/experience.type";
 import * as blocks from "../blocks/";
 
 export class ResumeBuilder {
@@ -24,6 +25,17 @@ export class ResumeBuilder {
     if (this.skipIfNull(userSummary)) return this;
     this.parts.push(blocks.sectionTitle("Profile"));
     this.parts.push(blocks.Profile(userSummary!));
+    return this;
+  }
+
+  addExperience(experiences?: WorkExperience[]) {
+    if (this.skipIfNull(experiences)) return this;
+
+    // section header
+    this.parts.push(blocks.sectionTitle("Experience"));
+    experiences!.forEach(exp => {
+      this.parts.push(blocks.ExperienceBlock(exp));
+    });
     return this;
   }
 

@@ -10,7 +10,8 @@ function testBlocks() {
   builder
     .setBase()
     .setHeader(mockResume?.personalInfo?.name, mockResume?.personalInfo?.contact)
-    .addProfile(mockResume?.personalInfo?.description);
+    .addProfile(mockResume?.personalInfo?.description)
+    .addExperience(mockResume.experiences);
 
   const resumeString = builder.build();
   //write to file for debugging
