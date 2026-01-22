@@ -6,7 +6,6 @@
 
 // --- Fonts ---
 // Change these strings to the fonts installed on your system
-#let font-header = "inter" 
 #let font-body = "inter"
 
 // --- Sizes ---

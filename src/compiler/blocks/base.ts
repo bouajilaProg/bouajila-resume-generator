@@ -4,6 +4,6 @@ export function Base() {
 #import "../template/standard/lib.typ": *
 
 
-#set text(font: font-main, size: size-body, fill: text-dark)
+#set text(font: font-body, size: size-body, fill: text-dark)
 `
 }
