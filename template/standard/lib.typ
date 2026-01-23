@@ -102,7 +102,10 @@
     #text(size: size-body, fill: text-dark)[#content]
   ]
 }
-#let one_liners(items) = {
+
+
+// --- 5. One Liners Item ---
+#let one_liner(items) = {
   pad(left: 8pt)[
     #stack(
       dir: ttb, 
