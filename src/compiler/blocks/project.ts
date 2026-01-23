@@ -2,17 +2,14 @@ import { Project } from "../../../types/project.type";
 
 function ProjectBlock(project: Project): string {
   const tags = project.tools.split(",").map(t => t.trim());
-  let links = [];
-  if (project.projectLink) links.push(project.projectLink);
-  const linkUrl = links.length > 0 ? links.join(" | ") : "none";
-
+  const links = project.projectLink ? `"${project.projectLink}"` : "none";
   return `#experience(
   title: "${project.title}",
   titleRole: "",
   description: "${project.description}",
   location: "",
   date: "",
-  linkUrl: "${linkUrl}",
+  linkUrl: ${links},
   tags: (${tags.map(t => `"${t}"`).join(", ")})
 )`;
 }
