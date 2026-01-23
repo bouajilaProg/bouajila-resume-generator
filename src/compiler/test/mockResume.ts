@@ -28,6 +28,7 @@ const mockResume: Resume = {
       id: 1,
       degreeType: "BS",
       degreeName: "Computer Science",
+      description: "Bachelor's degree in Computer Science",
       institution: "ISIMM",
       startDate: "2021",
       endDate: "2024",
@@ -45,6 +46,16 @@ const mockResume: Resume = {
       endDate: "Present",
       summary:
         "Built and maintained full-stack applications using React, TypeScript, and NestJS. Focused on reusable components, clean architecture, and small-business solutions.",
+      keywords: "React TypeScript NestJS PostgreSQL Docker",
+    },
+    {
+      id: 2,
+      jobTitle: "Junior Full-Stack Developer",
+      company: "Freelance / Personal Projects",
+      location: "Remote",
+      startDate: "2023",
+      endDate: "Present",
+      summary: "",
       keywords: "React TypeScript NestJS PostgreSQL Docker",
     },
   ],
@@ -93,6 +104,27 @@ const mockResume: Resume = {
       activityName: "Self-Directed Learning & Open-Source Exploration",
       startDate: "2022",
       endDate: "Present",
+    },
+
+    {
+      id: 2,
+      activityName: "Self-Directed Learning & Open-Source Exploration",
+      startDate: "2022",
+      endDate: "Present",
+    },
+  ],
+  certifications: [
+    {
+      id: 1,
+      name: "Full-Stack Web Development Certification",
+      issuingOrganization: "FreeCodeCamp",
+      issueDate: "2023",
+    },
+    {
+      id: 2,
+      name: "Full-Stack Web Development Certification",
+      issuingOrganization: "FreeCodeCamp",
+      issueDate: "2023",
     },
   ],
 };

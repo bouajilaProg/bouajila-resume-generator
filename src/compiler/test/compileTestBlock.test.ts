@@ -15,7 +15,7 @@ function testBlocks() {
     .addEducations(mockResume.educations)
     .addProjects(mockResume.projects)
     .addSkills(mockResume.skills)
-    .addCertifications([])
+    .addCertifications(mockResume.certifications)
     .addExtracurriculars(mockResume.extracurriculars);
 
   const resumeString = builder.build();
