@@ -43,13 +43,13 @@
   grid(
     columns: (auto, 1fr),
     align: horizon,
-    gutter: 4pt,
     text(fill: primary-color, weight: 700, size: size-section-title, upper(title)),
-    move(dy: 0.35em, line(length: 100%, stroke: 1pt + primary-color.lighten(30%)))
+    move(dy: 0.35em,dx: 0.2em, line(length: 100%, stroke: 1pt + primary-color.lighten(30%)))
   )
   v(4pt)
 }
 
+// --- 3. Experience Item ---
 #let experience(
   title: "", 
   titleRole: "", 
@@ -63,7 +63,6 @@
   let text-medium = black
   let text-dark = black
   let size-tiny = 8pt
-
   v(item-spacing + 2pt, weak: true)
   
   let left-items = ()
@@ -80,14 +79,14 @@
       list(..desc-items, tight: true)
     )
   }
-
+  
   if tags != () and tags != none and tags != "" {
     let tag-display = if type(tags) == str { tags } else { tags.join(" • ") }
     left-items.push(text(size: size-tiny, fill: primary-color)[
       #tag-display
     ])
   }
-
+  
   let right-items = ()
   
   if location != none and location != "" {
@@ -108,7 +107,7 @@
     
     grid(
       columns: (1fr, auto),
-      row-gutter: 4pt,
+      row-gutter: 5pt,
       ..for i in range(max-rows) {
         (
           if i < left-items.len() { left-items.at(i) } else { [] },
@@ -116,34 +115,38 @@
         )
       }
     )
-    v(2pt)
+    v(3pt)
   }
 }
 
 // --- 4. Paragraph Item ---
 #let paragraph(content) = {
-  pad(left: 8pt)[
+  v(-16pt)
+  pad(left: 0pt)[
     #set par(justify: true)
     #text(size: size-body, fill: text-dark)[#content]
   ]
+  v(-4pt)
 }
 
 // --- 5. One Liners Item ---
 #let one_liner(items) = {
-    stack(
-      dir: ttb, 
-      spacing: 6pt, 
-      ..items.map(it => {
-        if type(it) == dictionary {
-          grid(
-            columns: (1fr, auto),
-            align: (bottom + left, bottom + right),
-            [#it.text],
-            [#it.date]
-          )
-        } else {
-          [#it]
-        }
-      })
-    )
+  v(-4pt)
+  stack(
+    dir: ttb, 
+    spacing: 8pt, 
+    ..items.map(it => {
+      if type(it) == dictionary {
+        grid(
+          columns: (1fr, auto),
+          align: (bottom + left, bottom + right),
+          [#it.text],
+          [#it.date]
+        )
+      } else {
+        [#it]
+      }
+    })
+  )
+  v(-4pt)
 }

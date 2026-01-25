@@ -16,7 +16,7 @@
 #let size-tiny = 8pt
 
 // --- Spacing & Layout ---
-#let section-spacing = 6pt
+#let section-spacing = 2pt
 #let item-spacing = 4pt
 #let header-v-offset = -8pt
 #let page-margins = (x: 1cm, y: 1cm)
