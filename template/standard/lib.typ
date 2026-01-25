@@ -42,7 +42,8 @@
   )
   v(4pt)
 }
-// --- 3. Experience Item ---
+
+
 #let experience(
   title: "", 
   titleRole: "", 
@@ -52,50 +53,77 @@
   linkUrl: none,
   tags: ()
 ) = {
+  // Configurable spacing and colors (ensure these are defined in your main template)
+  let item-spacing = 2pt
+  let text-medium = gray.darken(20%)
+  let text-dark = black
+  let primary-color = blue.darken(20%)
+  let size-tiny = 8pt
+
   v(item-spacing + 2pt, weak: true)
-  grid(
-    columns: (1fr, auto),
-    gutter: 5pt, 
-    stack(dir: ttb, spacing: 4pt,
-      [*#title* #h(5pt) #text(fill: text-medium)[#titleRole]],
-      {
-        let desc-items = if type(description) == str { (description,) } else { description }
-        if desc-items.len() == 1 {
-          v(1pt)
-          text(size: size-body, fill: text-dark)[#desc-items.at(0)]
-        } else if desc-items.len() > 1 {
-          set list(indent: 8pt, marker: [•], spacing: 5pt)
-          text(size: size-body, fill: text-dark)[
-            #for item in desc-items {
-              let clean-item = if type(item) == str { item.trim("-").trim() } else { item }
-              list.item(clean-item)
-            }
-          ]
-        }
-      },
-      if tags.len() > 0 {
-        v(2pt)
-        text(size: size-body, fill: primary-color.lighten(10%))[
-          *#if type(tags) == str { tags } else { tags.join(", ") }*
-        ]
+  
+  // --- Left Side Logic ---
+  let left-items = ()
+  
+  // 1. Title and Subtitle
+  if title != "" or titleRole != "" {
+    left-items.push([
+      *#title* #if titleRole != "" { h(5pt) + text(fill: text-medium, weight: "regular")[#titleRole] }
+    ])
+  }
+  
+  // 2. Description
+  if description != () and description != "" and description != none {
+    let desc-items = if type(description) == str { (description,) } else { description }
+    left-items.push(
+      list(..desc-items, tight: true)
+    )
+  }
+
+  // 3. Tags
+  if tags != () and tags != none and tags != "" {
+    let tag-display = if type(tags) == str { tags } else { tags.join(" • ") }
+    left-items.push(text(size: size-tiny, fill: text-medium)[
+      #tag-display
+    ])
+  }
+
+  // --- Right Side Logic ---
+  let right-items = ()
+  
+  if location != none and location != "" {
+    right-items.push(text(size: size-tiny, weight: 600, fill: text-dark)[#location])
+  }
+  
+  if date != none and date != "" {
+    right-items.push(text(size: size-tiny, fill: text-medium)[#date])
+  }
+  
+  if linkUrl != none and linkUrl != "" {
+    let displayLink = linkUrl.replace("https://", "").replace("http://", "")
+    right-items.push(text(size: size-tiny, fill: primary-color)[#link(linkUrl)[#displayLink]])
+  }
+  
+  // --- Rendering Grid ---
+  if left-items.len() > 0 or right-items.len() > 0 {
+    let max-rows = calc.max(left-items.len(), right-items.len())
+    
+    grid(
+      columns: (1fr, auto),
+      row-gutter: 4pt,
+      ..for i in range(max-rows) {
+        (
+          // Left Column
+          if i < left-items.len() { left-items.at(i) } else { [] },
+          // Right Column
+          if i < right-items.len() { align(right)[#right-items.at(i)] } else { [] }
+        )
       }
-    ),
-    align(right)[
-      #set text(size: size-tiny)
-      #stack(
-        dir: ttb,
-        spacing: 3pt,
-        if location != none { text(weight: 600, fill: text-dark)[#location] },
-        if date != none { text(fill: text-medium)[#date] },
-        if linkUrl != none {
-          let displayLink = linkUrl.replace("https://", "").replace("http://", "")
-          text(fill: primary-color)[#link(linkUrl)[#displayLink]]
-        }
-      )
-    ]
-  )
-  v(2pt)
-}// --- 4. Paragraph Item ---
+    )
+    v(2pt)
+  }
+}
+
 // --- 4. Paragraph Item ---
 #let paragraph(content) = {
   pad(left: 8pt)[
