@@ -43,7 +43,6 @@
   v(4pt)
 }
 
-
 #let experience(
   title: "", 
   titleRole: "", 
@@ -53,26 +52,21 @@
   linkUrl: none,
   tags: ()
 ) = {
-  // Configurable spacing and colors (ensure these are defined in your main template)
   let item-spacing = 2pt
-  let text-medium = gray.darken(20%)
+  let text-medium = black
   let text-dark = black
-  let primary-color = blue.darken(20%)
   let size-tiny = 8pt
 
   v(item-spacing + 2pt, weak: true)
   
-  // --- Left Side Logic ---
   let left-items = ()
   
-  // 1. Title and Subtitle
   if title != "" or titleRole != "" {
     left-items.push([
       *#title* #if titleRole != "" { h(5pt) + text(fill: text-medium, weight: "regular")[#titleRole] }
     ])
   }
   
-  // 2. Description
   if description != () and description != "" and description != none {
     let desc-items = if type(description) == str { (description,) } else { description }
     left-items.push(
@@ -80,15 +74,13 @@
     )
   }
 
-  // 3. Tags
   if tags != () and tags != none and tags != "" {
     let tag-display = if type(tags) == str { tags } else { tags.join(" • ") }
-    left-items.push(text(size: size-tiny, fill: text-medium)[
+    left-items.push(text(size: size-tiny, fill: primary-color)[
       #tag-display
     ])
   }
 
-  // --- Right Side Logic ---
   let right-items = ()
   
   if location != none and location != "" {
@@ -104,7 +96,6 @@
     right-items.push(text(size: size-tiny, fill: primary-color)[#link(linkUrl)[#displayLink]])
   }
   
-  // --- Rendering Grid ---
   if left-items.len() > 0 or right-items.len() > 0 {
     let max-rows = calc.max(left-items.len(), right-items.len())
     
@@ -113,9 +104,7 @@
       row-gutter: 4pt,
       ..for i in range(max-rows) {
         (
-          // Left Column
           if i < left-items.len() { left-items.at(i) } else { [] },
-          // Right Column
           if i < right-items.len() { align(right)[#right-items.at(i)] } else { [] }
         )
       }
@@ -131,7 +120,6 @@
     #text(size: size-body, fill: text-dark)[#content]
   ]
 }
-
 
 // --- 5. One Liners Item ---
 #let one_liner(items) = {
