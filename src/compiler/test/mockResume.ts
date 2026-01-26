@@ -19,6 +19,7 @@ const mockResume: Resume = {
       { id: 5, type: "Website", value: "janedev.com" },
     ],
     hobbies: ["Open Source", "Technical Writing", "Photography", "Hiking"],
+    languages: ["English (Native)", "Spanish (Professional)"],
   },
 
   educations: [
@@ -84,24 +85,28 @@ const mockResume: Resume = {
     {
       id: 1,
       title: "E-Commerce Platform",
-      description:
-        "Full-featured online store with product catalog, shopping cart, payment processing, and admin dashboard. Handles 10,000+ daily transactions.",
+      notes:
+        [
+          "Full-featured online store with product catalog, shopping cart, payment processing, and admin dashboard. Handles 10,000+ daily transactions."],
       tools: "React, TypeScript, Node.js, PostgreSQL, Stripe API, AWS S3",
       projectLink: "https://github.com/janedev/ecommerce-platform",
     },
     {
       id: 2,
       title: "Task Management System",
-      description:
-        "Collaborative project management tool with real-time updates, file sharing, and team analytics. Built for remote teams.",
+      notes:
+        [
+          "Collaborative project management tool with real-time updates, file sharing, and team analytics. Built for remote teams.",
+          "Implemented WebSocket-based notifications for task updates."
+        ],
       tools: "Next.js, NestJS, PostgreSQL, Redis, Docker, Socket.io",
       projectLink: "https://github.com/janedev/task-manager",
     },
     {
       id: 3,
       title: "Portfolio Generator",
-      description:
-        "CLI tool to generate professional portfolio websites from YAML configuration. Supports multiple templates and themes.",
+      notes:
+        ["CLI tool to generate professional portfolio websites from YAML configuration. Supports multiple templates and themes."],
       tools: "TypeScript, Node.js, YAML, Handlebars, GitHub Actions",
       projectLink: "https://github.com/janedev/portfolio-gen",
     },
