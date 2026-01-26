@@ -10,7 +10,7 @@
 
 // --- Sizes ---
 #let size-name = 22pt
-#let size-section-title = 11pt
+#let size-section-title = 9pt
 #let size-body = 9pt
 #let size-subtext = 8.5pt
 #let size-tiny = 8pt
