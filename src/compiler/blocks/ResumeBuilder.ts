@@ -6,6 +6,7 @@ import { Skills } from "../../../types/skills.type";
 import { Certification } from "../../../types/certif.type";
 import { ExtraCurricularActivity } from "../../../types/extraCurr.type";
 import * as blocks from "../blocks/";
+import { ResumeSection, SectionType } from "types/resumeItem.type";
 
 export class ResumeBuilder {
   private parts: string[] = [];
@@ -105,6 +106,47 @@ export class ResumeBuilder {
     return this;
   }
 
+  addSection(section: ResumeSection) {
+    // TypeScript now uses 'type' to narrow down the data type of 'body'
+    switch (section.type) {
+      case SectionType.WorkExperience:
+        // section.body is automatically WorkExperience[]
+        this.addExperience(section.body);
+        break;
+
+      case SectionType.Education:
+        // section.body is automatically EducationItem[]
+        this.addEducations(section.body);
+        break;
+
+      case SectionType.Project:
+        // section.body is automatically Project[]
+        this.addProjects(section.body);
+        break;
+
+      case SectionType.Skills:
+        // section.body is automatically Skills (object)
+        this.addSkills(section.body);
+        break;
+
+      case SectionType.Certification:
+        // section.body is automatically Certification[]
+        this.addCertifications(section.body);
+        break;
+
+      case SectionType.ExtraCurricular:
+        // section.body is automatically ExtraCurricularActivity[]
+        this.addExtracurriculars(section.body);
+        break;
+
+      default:
+        // This part handles exhaustive checking
+        const _exhaustiveCheck: never = section;
+        console.error("Unknown section detected", _exhaustiveCheck);
+        break;
+    }
+    return this;
+  }
   build(): string {
     return this.parts.join("\n\n");
   }

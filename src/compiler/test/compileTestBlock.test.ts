@@ -11,14 +11,11 @@ function testBlocks() {
     .setBase()
     .setHeader(mockResume?.personalInfo?.name, mockResume?.personalInfo?.contact)
     .addProfile(mockResume?.personalInfo?.description)
-    .addExperience(mockResume.experiences)
-    .addEducations(mockResume.educations)
-    .addProjects(mockResume.projects)
-    .addSkills(mockResume.skills)
-    .addLanguages(mockResume?.personalInfo?.languages)
-    .addHobbies(mockResume?.personalInfo?.hobbies)
-    .addCertifications(mockResume.certifications)
-    .addExtracurriculars(mockResume.extracurriculars);
+
+
+  for (const section of mockResume.sections) {
+    builder.addSection(section);
+  }
 
   const resumeString = builder.build();
   //write to file for debugging
