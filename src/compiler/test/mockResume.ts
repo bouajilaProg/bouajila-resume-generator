@@ -16,8 +16,6 @@ const mockResume: Resume = {
       { id: 1, type: "Email", value: "jane.developer@example.com" },
       { id: 2, type: "Phone", value: "+1 (555) 123-4567" },
     ],
-    hobbies: ["Open Source", "Photography"],
-    languages: ["English (Native)", "Spanish (Professional)"],
   },
 
   sections: [
@@ -90,6 +88,17 @@ const mockResume: Resume = {
       },
     },
     {
+      type: SectionType.ExtraCurricular,
+      body: [
+        {
+          id: 11,
+          activityName: "Mentor - Women Who Code",
+          startDate: "2022",
+          endDate: "Present",
+        },
+      ],
+    },
+    {
       type: SectionType.Certification,
       body: [
         {
@@ -101,14 +110,17 @@ const mockResume: Resume = {
       ],
     },
     {
-      type: SectionType.ExtraCurricular,
+      type: SectionType.Languages,
       body: [
-        {
-          id: 11,
-          activityName: "Mentor - Women Who Code",
-          startDate: "2022",
-          endDate: "Present",
-        },
+        { id: 14, name: "English", proficiency: "Fluent" },
+        { id: 15, name: "Spanish", proficiency: "Advanced" },
+      ],
+    },
+    {
+      type: SectionType.Hobbies,
+      body: [
+        { id: 12, name: "Open Source" },
+        { id: 13, name: "Photography" },
       ],
     },
   ],
