@@ -9,6 +9,8 @@ export * from "./skills.type";
 export * from "./experience.type";
 export * from "./certif.type";
 export * from "./extraCurr.type";
+export * from "./hobbies.type";
+export * from "./languages.type";
 
 
 

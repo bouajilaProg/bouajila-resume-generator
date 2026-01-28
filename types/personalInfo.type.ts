@@ -1,3 +1,6 @@
+import { Hobbies } from "./hobbies.type";
+import { Languages } from "./languages.type";
+
 export const CONTACT_TYPES = [
   "Email",
   "Phone",
@@ -19,6 +22,5 @@ export interface PersonalInfo {
   location: string;
   description: string;
   contact: Contact[];
-  hobbies: string[];
 }
 

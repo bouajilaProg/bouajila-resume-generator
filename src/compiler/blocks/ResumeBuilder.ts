@@ -5,6 +5,7 @@ import { Project } from "../../../types/project.type";
 import { Skills } from "../../../types/skills.type";
 import { Certification } from "../../../types/certif.type";
 import { ExtraCurricularActivity } from "../../../types/extraCurr.type";
+import { Hobbies } from "../../../types/hobbies.type";
 import { Languages } from "../../../types/languages.type";
 import * as blocks from "../blocks/";
 import { ResumeSection, SectionType } from "types/resumeItem.type";
@@ -81,7 +82,7 @@ export class ResumeBuilder {
     return this;
   }
 
-  addHobbies(hobbies?: string[]) {
+  addHobbies(hobbies?: Hobbies) {
     if (this.skipIfNull(hobbies) || hobbies!.length === 0) return this;
     this.parts.push(blocks.sectionTitle("Hobbies"));
     this.parts.push(blocks.HobbiesBlock(hobbies!));
@@ -102,42 +103,39 @@ export class ResumeBuilder {
     if (this.skipIfNull(extracurriculars) || extracurriculars!.length === 0) return this;
     this.parts.push(blocks.sectionTitle("Extracurriculars"));
     const activityItems = extracurriculars!.map(act => blocks.ExtraCurrBlock(act));
-    const itemsStr = activityItems.length === 1 ? `${activityItems[0]},` : activityItems.join("\n");
+    const itemsStr = activityItems.length === 1 ? `${activityItems[0]}` : activityItems.join("\n");
     this.parts.push(itemsStr);
     return this;
   }
 
   addSection(section: ResumeSection) {
-    // TypeScript now uses 'type' to narrow down the data type of 'body'
     switch (section.type) {
       case SectionType.WorkExperience:
-        // section.body is automatically WorkExperience[]
         this.addExperience(section.body);
         break;
 
       case SectionType.Education:
-        // section.body is automatically EducationItem[]
         this.addEducations(section.body);
         break;
 
       case SectionType.Project:
-        // section.body is automatically Project[]
         this.addProjects(section.body);
         break;
 
       case SectionType.Skills:
-        // section.body is automatically Skills (object)
         this.addSkills(section.body);
         break;
 
       case SectionType.Certification:
-        // section.body is automatically Certification[]
         this.addCertifications(section.body);
         break;
 
       case SectionType.ExtraCurricular:
-        // section.body is automatically ExtraCurricularActivity[]
         this.addExtracurriculars(section.body);
+        break;
+
+      case SectionType.Hobbies:
+        this.addHobbies(section.body);
         break;
 
       case SectionType.Languages:

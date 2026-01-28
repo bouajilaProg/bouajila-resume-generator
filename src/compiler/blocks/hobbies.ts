@@ -1,5 +1,7 @@
-function HobbiesBlock(hobbies: string[]): string {
-  const hobbyList = hobbies.join(", ");
+import { Hobbies } from "../../../types/hobbies.type";
+
+function HobbiesBlock(hobbies: Hobbies): string {
+  const hobbyList = hobbies.map(h => h.name).join(", ");
 
   return `
 #paragraph("

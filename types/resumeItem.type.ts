@@ -2,6 +2,7 @@ import { Certification } from "./certif.type";
 import { EducationItem } from "./education.type";
 import { WorkExperience } from "./experience.type";
 import { ExtraCurricularActivity } from "./extraCurr.type";
+import { Hobbies } from "./hobbies.type";
 import { Languages } from "./languages.type";
 import { PersonalInfo } from "./personalInfo.type";
 import { Project } from "./project.type";
@@ -15,10 +16,10 @@ export const SectionType = {
   Skills: "skills",
   Certification: "certification",
   ExtraCurricular: "extracurricular",
+  Hobbies: "hobbies",
   Languages: "languages",
 } as const;
 
-// This creates a type union: "education" | "project" | ...
 export type SectionTypeValue = typeof SectionType[keyof typeof SectionType];
 
 export type ResumeSection =
