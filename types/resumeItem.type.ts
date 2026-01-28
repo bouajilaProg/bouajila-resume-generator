@@ -2,6 +2,7 @@ import { Certification } from "./certif.type";
 import { EducationItem } from "./education.type";
 import { WorkExperience } from "./experience.type";
 import { ExtraCurricularActivity } from "./extraCurr.type";
+import { Languages } from "./languages.type";
 import { PersonalInfo } from "./personalInfo.type";
 import { Project } from "./project.type";
 import { Skills } from "./skills.type";
@@ -14,6 +15,7 @@ export const SectionType = {
   Skills: "skills",
   Certification: "certification",
   ExtraCurricular: "extracurricular",
+  Languages: "languages",
 } as const;
 
 // This creates a type union: "education" | "project" | ...

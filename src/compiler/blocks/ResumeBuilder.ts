@@ -5,6 +5,7 @@ import { Project } from "../../../types/project.type";
 import { Skills } from "../../../types/skills.type";
 import { Certification } from "../../../types/certif.type";
 import { ExtraCurricularActivity } from "../../../types/extraCurr.type";
+import { Languages } from "../../../types/languages.type";
 import * as blocks from "../blocks/";
 import { ResumeSection, SectionType } from "types/resumeItem.type";
 
@@ -73,7 +74,7 @@ export class ResumeBuilder {
     return this;
   }
 
-  addLanguages(languages?: string[]) {
+  addLanguages(languages?: Languages) {
     if (this.skipIfNull(languages) || languages!.length === 0) return this;
     this.parts.push(blocks.sectionTitle("Spoken Languages"));
     this.parts.push(blocks.LanguagesBlock(languages!));
@@ -139,8 +140,11 @@ export class ResumeBuilder {
         this.addExtracurriculars(section.body);
         break;
 
+      case SectionType.Languages:
+        this.addLanguages(section.body);
+        break;
+
       default:
-        // This part handles exhaustive checking
         const _exhaustiveCheck: never = section;
         console.error("Unknown section detected", _exhaustiveCheck);
         break;
