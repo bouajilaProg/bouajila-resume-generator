@@ -1,7 +1,8 @@
 export function Profile(userSummary: string): string {
   return `
-  #paragraph("
-  ${userSummary.trim()}
-")`;
+  #v(0.4em)
+  #paragraph("${userSummary.trim()}")
+#v(1em)
+`;
 }
 

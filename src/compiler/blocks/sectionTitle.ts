@@ -1,5 +1,4 @@
 export function sectionTitle(sectionTitle: string): string {
-  return (`
-  #section("${sectionTitle}")`).trim();
+  return (` #section("${sectionTitle}")`).trim();
 }
 
