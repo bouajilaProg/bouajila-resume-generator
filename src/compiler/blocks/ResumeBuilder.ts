@@ -71,11 +71,24 @@ export class ResumeBuilder {
   addProjects(projects?: Project[]) {
     if (this.skipIfNull(projects)) return this;
 
+
+    // section header
     this.parts.push(blocks.sectionTitle("Projects"));
-    projects!.forEach(proj => {
-      this.parts.push(blocks.ProjectBlock(proj));
-    });
+    this.parts.push("#v(0.4em)");
+
+    if (projects!.length === 1) {
+      this.parts.push("#" + blocks.ProjectBlock(projects![0]));
+    } else {
+      this.parts.push("#stack(spacing:1.5em,")
+      projects!.forEach(proj => {
+        this.parts.push(blocks.ProjectBlock(proj));
+        this.parts.push(",")
+      });
+      this.parts.push(")"); // end stack
+    }
+    this.parts.push("#v(1em)");
     return this;
+
   }
 
   addSkills(skills?: Skills) {

@@ -10,7 +10,7 @@ function ProjectBlock(project: Project): string {
 
   const linkUrl = project.projectLink ? `"${project.projectLink}"` : "none";
 
-  return `#experience(
+  return `experience(
   title: "${project.title}",
   titleRole: "",
   description: (${descriptionItems}),
