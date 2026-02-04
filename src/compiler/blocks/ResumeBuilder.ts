@@ -118,7 +118,11 @@ export class ResumeBuilder {
   addLanguages(languages?: Languages) {
     if (this.skipIfNull(languages) || languages!.length === 0) return this;
     this.parts.push(blocks.sectionTitle("Spoken Languages"));
+
+    this.parts.push("#v(0.4em)");
     this.parts.push(blocks.LanguagesBlock(languages!));
+
+    this.parts.push("#v(0.6em)");
     return this;
   }
 

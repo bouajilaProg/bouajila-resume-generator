@@ -9,10 +9,8 @@ function LanguagesBlock(languages: Languages): string {
   }).join(", ");
 
   return `
-#paragraph("
-  ${languageList}
-")
-`;
+#one_liner(([${languageList}]))
+`.trim();
 }
 
 export { LanguagesBlock };
