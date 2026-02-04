@@ -1,12 +1,12 @@
 #import "../config.typ": *
 
 #let one_liner(items) = {
-  v(-4pt)
+  v(-4pt, weak: true)
 
   pad(left: padding)[
     #stack(
     dir: ttb, 
-    spacing: 8pt, 
+    spacing: 6pt, 
     ..items.map(it => {
       if type(it) == dictionary {
         grid(
@@ -21,5 +21,5 @@
     })
   )
 ]
-  v(-4pt)
+  v(-4pt, weak: true)
 }

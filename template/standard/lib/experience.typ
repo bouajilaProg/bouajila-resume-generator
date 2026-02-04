@@ -75,6 +75,6 @@
         }
       )
     ]
-    v(3pt)
+    v(3pt, weak: true)
   }
 }
