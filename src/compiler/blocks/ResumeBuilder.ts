@@ -138,10 +138,19 @@ export class ResumeBuilder {
   addCertifications(certifications?: Certification[]) {
     if (this.skipIfNull(certifications) || certifications!.length === 0) return this;
 
-    this.parts.push(blocks.sectionTitle("Certifications"));
-    certifications!.forEach(cert => {
-      this.parts.push(blocks.CertificationBlock(cert));
-    });
+    // Add the section header and vertical spacing
+    this.parts.push('#section("Certifications")');
+    this.parts.push('#v(0.4em)');
+
+    // Map each certification through our block builder
+    const certStrings = certifications!.map(cert => blocks.CertificationBlock(cert));
+
+    // Join them with commas and wrap in the #one_liner function
+    const oneLiner = `#one_liner((\n  ${certStrings.join(',\n  ')}\n))`;
+
+    this.parts.push(oneLiner);
+    this.parts.push('#v(1em)');
+
     return this;
   }
 

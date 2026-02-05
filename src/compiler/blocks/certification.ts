@@ -1,14 +1,8 @@
 import { Certification } from "../../../types/certif.type";
 
 function CertificationBlock(cert: Certification): string {
-  return `#experience(
-    title: "${cert.name}",
-    titleRole: "${cert.issuingOrganization}",
-    date: "${cert.issueDate}",
-    location: none,
-    linkUrl: none,
-    tags: ()
-  )`;
+  // Wrapping the name in * for bolding as per your requirements
+  return `(text: [*${cert.name}* (${cert.issuingOrganization})], date: "${cert.issueDate}")`;
 }
 
 export { CertificationBlock };
