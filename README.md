@@ -83,7 +83,11 @@ console.log(typstCode);
 
 ## Documentation
 
-Detailed documentation and advanced guides will be available soon. We are currently building our documentation site using [Docusaurus](https://docusaurus.io/).
+Run the documentation site locally:
+
+```bash
+pnpm run docs
+```
 
 ## Development
 
@@ -91,8 +95,10 @@ Detailed documentation and advanced guides will be available soon. We are curren
 
 - **Build:** `pnpm run build` - Transpiles TypeScript to JavaScript in `dist/`.
 - **Typecheck:** `pnpm run typecheck` - Runs the TypeScript compiler without emitting files.
-- **Test Compile:** `pnpm run test` - Compiles a mock resume and outputs it to `output/resume.pdf`.
-- **Watch Mode:** `pnpm run test:watch` - Watches for changes and re-runs the test compilation.
+- **Dev (Single Run):** `pnpm run dev` - Compiles the mock resume to `output/resume.pdf`.
+- **Dev (Watch Mode):** `pnpm run dev:watch` - Watches for changes and re-runs the dev compilation.
+- **Test:** `pnpm run test` - Runs unit and integration tests using Vitest.
+- **Docs:** `pnpm run docs` - Starts the Docusaurus development server.
 
 ### Project Structure
 

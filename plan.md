@@ -28,8 +28,9 @@ This plan outlines the steps to refactor the `yamlResume` project for better mai
 - **Documentation:** Update `AGENTS.md` if any operational commands change.
 
 ## Task Breakdown (Committable)
-1. [ ] Setup Vitest and remove `src/utils/path.ts`.
-2. [ ] Refactor `ResumeBuilder` and implement Typst escaping.
-3. [ ] Add unit tests for all blocks in `src/compiler/blocks/`.
-4. [ ] Refactor `src/index.ts` and add integration tests.
-5. [ ] Cleanup `src/compiler/test/` (remove old manual tests).
+1. [x] Setup Vitest and remove `src/utils/path.ts`.
+2. [x] Refactor `ResumeBuilder` and implement Typst escaping.
+3. [x] Add unit tests for all blocks in `src/compiler/blocks/`.
+4. [x] Refactor `src/index.ts` and add integration tests.
+5. [x] Cleanup `src/compiler/test/` (remove old manual tests).
+6. [x] Setup Docusaurus documentation and `pnpm run docs` script.
