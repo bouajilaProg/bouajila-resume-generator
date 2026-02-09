@@ -15,8 +15,7 @@
     "build": "tsc",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest",
-    "test:old": "tsx ./src/compiler/test/compileTestBlock.test.ts"
+    "test:watch": "vitest"
   },
   "keywords": [
     "resume",
