@@ -10,26 +10,35 @@ The `bouajila-resume-generator` provides two primary ways to work with your resu
 
 The most common use case is generating a PDF directly. This is handled by the `compile` function.
 
-### Basic Usage
+### `compile(resume: Resume, options?: CompileOptions)`
+
+The `compile` function is an asynchronous function that takes your resume data and returns the compiled PDF.
+
+#### Parameters
+
+- **`resume`**: The structured resume data (see [Sections](/docs/category/resume-sections) for details).
+- **`options`** (optional): An object to configure the output.
+  - **`outputPath`**: (string) The file path where the PDF should be saved. If provided, the generator will write the file automatically.
+  - **`format`**: (`"buffer"` | `"blob"`) Specifies the return type.
+    - `"buffer"` (default): Returns a Node.js `Buffer`.
+    - `"blob"`: Returns a `Blob` (useful for browser-based triggers).
+
+### Example with Output Path
 
 ```typescript
 import { compile } from "bouajila-resume-generator";
 
-const { buffer } = await compile(myResume);
+// This will create 'my-resume.pdf' in the current directory
+await compile(myResume, { 
+  outputPath: "./my-resume.pdf" 
+});
 ```
 
-### Options
-
-The `compile` function accepts an optional `options` object:
-
-- `outputPath`: String. If provided, the generator will write the PDF to this path.
-- `format`: `"buffer"` (default) or `"blob"`. Useful for different environments (Node.js vs Browser).
+### Example with Buffer Return
 
 ```typescript
-await compile(myResume, { 
-  outputPath: "./my-cv.pdf",
-  format: "buffer" 
-});
+const { buffer } = await compile(myResume);
+// buffer is a Node.js Buffer containing the PDF data
 ```
 
 ## Generating Typst Source
