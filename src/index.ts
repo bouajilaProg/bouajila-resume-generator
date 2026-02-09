@@ -1,8 +1,8 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import os from "node:os";
 import { ResumeBuilder } from "./compiler/blocks/ResumeBuilder";
 import { compileToPdf, verifyEnv } from "./compiler/compile";
-import { paths } from "./utils/path";
 
 // Export all types and values (like SectionType) from the types directory
 export * from "../types/index";
@@ -28,22 +28,6 @@ export interface CompileResult {
  * @param resume - The resume data to compile
  * @param options - Optional configuration for output format
  * @returns CompileResult containing the PDF as buffer or blob
- * 
- * @example
- * ```ts
- * import { compile, Resume } from "yaml-resume";
- * 
- * const resume: Resume = { ... };
- * 
- * // Get as Buffer (default)
- * const { buffer } = await compile(resume);
- * 
- * // Get as Blob
- * const { blob } = await compile(resume, { format: "blob" });
- * 
- * // Write directly to file
- * await compile(resume, { outputPath: "./my-resume.pdf" });
- * ```
  */
 export async function compile(
   resume: Resume,
@@ -55,18 +39,18 @@ export async function compile(
   await verifyEnv();
 
   // create temp directory for compilation
-  await fs.mkdir(paths.outputDir, { recursive: true });
-  const tempDir = await fs.mkdtemp(path.join(paths.outputDir, "compile-"));
+  const tempBaseDir = path.join(os.tmpdir(), "yaml-resume-");
+  const tempDir = await fs.mkdtemp(tempBaseDir);
   const tempTypst = path.join(tempDir, "resume.typ");
   const tempPdf = path.join(tempDir, "resume.pdf");
 
-
-  // craete the Typst source from the Resume object
+  // create the Typst source from the Resume object
   const builder = new ResumeBuilder();
   builder
     .setBase()
     .setHeader(resume?.personalInfo?.name, resume?.personalInfo?.contact)
     .addProfile(resume?.personalInfo?.description);
+
   for (const section of resume.sections) {
     builder.addSection(section);
   }
@@ -91,8 +75,6 @@ export async function compile(
       return { blob: new Blob([pdfBuffer], { type: "application/pdf" }) };
     }
     return { buffer: pdfBuffer };
-
-
   } finally {
     await fs.rm(tempDir, { recursive: true, force: true });
   }

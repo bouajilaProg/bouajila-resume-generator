@@ -1,5 +1,10 @@
 import { execa } from "execa";
-import { paths } from "../utils/path";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const projectRoot = path.resolve(__dirname, "../../");
 
 export async function verifyEnv() {
   try {
@@ -11,12 +16,11 @@ export async function verifyEnv() {
   }
 }
 
-
 export async function compileToPdf(inputFile: string, outputFile: string) {
   try {
     await execa("typst", [
       "compile",
-      "--root", paths.root,
+      "--root", projectRoot,
       inputFile,
       outputFile,
     ]);

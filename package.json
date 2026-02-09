@@ -14,8 +14,9 @@
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "test": "tsx ./src/compiler/test/compileTestBlock.test.ts",
-    "test:watch": "nodemon --watch src --watch template --ext ts,typ --ignore node_modules --ignore dist --exec 'pnpm test'"
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:old": "tsx ./src/compiler/test/compileTestBlock.test.ts"
   },
   "keywords": [
     "resume",
@@ -35,8 +36,10 @@
   },
   "devDependencies": {
     "@types/node": "^25.0.3",
+    "@vitest/ui": "^4.0.18",
     "nodemon": "^3.1.11",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
   }
 }
