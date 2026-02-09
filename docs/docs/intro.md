@@ -1,12 +1,13 @@
 ---
 sidebar_position: 1
+slug: /
 ---
 
 # Introduction
 
-Welcome to the **yamlResume** documentation!
+Welcome to the **bouajila-resume-generator** documentation!
 
-`yamlResume` is a lightweight, powerful tool designed to help you generate professional-quality resumes from structured YAML or JSON data. It leverages the power of [Typst](https://typst.app/) to produce beautiful, type-safe PDFs.
+`bouajila-resume-generator` is a lightweight, powerful tool designed to help you generate professional-quality resumes from structured YAML or JSON data. It leverages the power of [Typst](https://typst.app/) to produce beautiful, type-safe PDFs.
 
 ## Key Features
 
@@ -20,7 +21,5 @@ Welcome to the **yamlResume** documentation!
 To get started, install the package:
 
 ```bash
-pnpm add yaml-resume
+pnpm add bouajila-resume-generator
 ```
-
-Check out the [API Reference](/docs/api) to see how to use it in your project.

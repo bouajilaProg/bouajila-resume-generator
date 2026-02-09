@@ -16,8 +16,8 @@
     "typecheck": "tsc --noEmit",
     "dev": "tsx src/dev.ts",
     "dev:watch": "nodemon --watch src --watch types --ext ts,typ --exec 'pnpm run dev'",
-    "docs": "pnpm --prefix website start",
-    "docs:build": "pnpm --prefix website build",
+    "docs": "pnpm --prefix docs start",
+    "docs:build": "pnpm --prefix docs build",
     "test": "vitest run",
     "test:watch": "vitest"
   },

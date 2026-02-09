@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'yamlResume',
+  title: 'bouajila-resume-generator',
   tagline: 'Generate PDF resumes from structured data using Typst',
   favicon: 'img/favicon.ico',
 
@@ -23,7 +23,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'bouajila', // Usually your GitHub org/user name.
-  projectName: 'yamlResume', // Usually your repo name.
+  projectName: 'bouajila-resume-generator', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -40,6 +40,7 @@ const config: Config = {
       'classic',
       {
         docs: {
+          routeBasePath: '/',
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -61,9 +62,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'yamlResume',
+      title: 'bouajila-resume-generator',
       logo: {
-        alt: 'yamlResume Logo',
+        alt: 'bouajila-resume-generator Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -71,7 +72,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Docs',
+          label: 'Documentation',
         },
         {
           href: 'https://github.com/bouajilaProg/bouajila-resume-generator',
@@ -88,7 +89,7 @@ const config: Config = {
           items: [
             {
               label: 'Introduction',
-              to: '/docs/intro',
+              to: '/',
             },
           ],
         },
