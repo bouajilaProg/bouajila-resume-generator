@@ -26,7 +26,7 @@ const mockResume: Resume = {
           id: 1,
           degreeType: "BS",
           degreeName: "Computer Science",
-          description: "Graduated with Honors, GPA: 3.8/4.0",
+          description: "Gssraduated with Honors, GPA: 3.8/4.0",
           institution: "University of California, Berkeley",
           startDate: "2015",
           endDate: "2019",
