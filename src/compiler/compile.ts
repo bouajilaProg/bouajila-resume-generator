@@ -48,7 +48,8 @@ export async function unsafeCompileToPdf(inputFile: string, outputFile: string) 
       outputFile,
     ]);
   } catch (err) {
-    throw new Error("Compilation failed. " + (err as Error).message);
+    const message = (err as any).stderr || (err as Error).message || String(err);
+    throw new Error("Compilation failed: " + message);
   }
 }
 
