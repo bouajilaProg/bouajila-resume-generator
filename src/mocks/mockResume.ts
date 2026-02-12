@@ -1,5 +1,15 @@
 import { Resume } from "../../types/resumeItem.type";
 import { SectionType } from "../../types/resumeItem.type"; // Ensure SectionType is exported and imported
+import mock2 from "./mock2.json";
+
+// const mockResume: Resume = {
+//   name: "Mock Resume",
+//   description: "A mock resume for development",
+//   lastUpdate: new Date().toISOString(),
+//   ...mock2,
+// } as any;
+
+
 
 const mockResume: Resume = {
   name: "Jane Developer",

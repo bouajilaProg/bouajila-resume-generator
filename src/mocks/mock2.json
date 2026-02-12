@@ -1,0 +1,92 @@
+{
+  "template": "basic-resume",
+  "personalInfo": {
+    "name": "imed",
+    "location": "tunisie",
+    "description": "imed ya5ra wra talvza",
+    "contact": [
+      {
+        "id": 1766695653455,
+        "type": "Email",
+        "value": "bouajilamedyessine@gmail.com"
+      },
+      {
+        "id": 1766695671060,
+        "type": "Phone",
+        "value": "28747707"
+      }
+    ],
+    "hobbies": [
+      "Reading",
+      "coding",
+      "dev"
+    ]
+  },
+  "sections": [
+    {
+      "type": "education",
+      "body": [
+        {
+          "degreeType": "BS",
+          "degreeName": "bachlor in computer science",
+          "notes": [
+            "wiii"
+          ],
+          "institution": "isimm",
+          "startDate": "2024/12",
+          "endDate": "2025/12",
+          "keySkills": "tousqie formatique",
+          "id": 1
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "type": "work_experience",
+      "body": [
+        {
+          "jobTitle": "ppP",
+          "company": "pp",
+          "location": "p",
+          "startDate": "pp",
+          "endDate": "p",
+          "highlights": [
+            "p"
+          ],
+          "keywords": "p",
+          "id": 1
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "type": "project",
+      "body": [
+        {
+          "title": "pp",
+          "notes": [
+            "pp"
+          ],
+          "tools": "pp",
+          "projectLink": "pp",
+          "repoLink": "pp",
+          "id": 1
+        }
+      ]
+    },
+    {
+      "type": "skills",
+      "body": {
+        "languages": [],
+        "technologies": [],
+        "softSkills": []
+      },
+      "enabled": true
+    },
+    {
+      "type": "extracurricular",
+      "body": [],
+      "enabled": true
+    }
+  ]
+}

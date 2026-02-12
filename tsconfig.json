@@ -12,6 +12,7 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "sourceMap": true,
+    "resolveJsonModule": true,
     "declaration": true,
     "baseUrl": ".",
     "paths": {
