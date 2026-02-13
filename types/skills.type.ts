@@ -14,9 +14,9 @@ interface SkillItem {
 }
 
 interface Skills {
-  languages: SkillItem[];
-  technologies: SkillItem[];
-  softSkills: SkillItem[];
+  languages: SkillItem[] | undefined;
+  technologies: SkillItem[] | undefined;
+  softSkills: SkillItem[] | undefined;
 }
 
 export type { Skills, SkillItem, SkillType };

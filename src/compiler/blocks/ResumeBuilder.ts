@@ -90,6 +90,7 @@ export class ResumeBuilder {
 
   addSkills(skills?: Skills) {
     if (this.isEmpty(skills) || !skills) return this;
+    if (this.isEmpty(skills.languages) && this.isEmpty(skills.technologies) && this.isEmpty(skills.softSkills)) return this;
     this.parts.push(
       blocks.sectionTitle("Skills"),
       blocks.spacing(0.4),

@@ -25,38 +25,12 @@
   "sections": [
     {
       "type": "education",
-      "body": [
-        {
-          "degreeType": "BS",
-          "degreeName": "bachlor in computer science",
-          "notes": [
-            "wiii"
-          ],
-          "institution": "isimm",
-          "startDate": "2024/12",
-          "endDate": "2025/12",
-          "keySkills": "tousqie formatique",
-          "id": 1
-        }
-      ],
+      "body": [],
       "enabled": true
     },
     {
       "type": "work_experience",
-      "body": [
-        {
-          "jobTitle": "ppP",
-          "company": "pp",
-          "location": "p",
-          "startDate": "pp",
-          "endDate": "p",
-          "highlights": [
-            "p"
-          ],
-          "keywords": "p",
-          "id": 1
-        }
-      ],
+      "body": [],
       "enabled": true
     },
     {
@@ -78,7 +52,6 @@
       "type": "skills",
       "body": {
         "languages": [],
-        "technologies": [],
         "softSkills": []
       },
       "enabled": true
@@ -87,6 +60,31 @@
       "type": "extracurricular",
       "body": [],
       "enabled": true
+    },
+    {
+      "type": "certification",
+      "body": [],
+      "enabled": true
+    },
+    {
+      "type": "languages",
+      "body": [
+        {
+          "name": "french",
+          "proficiency": "Beginner",
+          "id": 2
+        }
+      ]
+    },
+    {
+      "type": "hobbies",
+      "body": [
+        {
+          "name": "chess",
+          "description": "i love chess",
+          "id": 1
+        }
+      ]
     }
   ]
 }
