@@ -5,15 +5,18 @@ function ProjectBlock(project: Project): string {
   // Map tags to quoted strings for Typst array syntax
   const tags = project.tools.split(",").map(t => `"${typstEscape(t.trim())}"`).join(", ");
 
-  // Format description: Map notes to quoted strings for Typst array syntax
-  const descriptionItems = project.notes.map(note => `"${typstEscape(note)}"`).join(", ");
+  const summary = project.summary ? `"${typstEscape(project.summary)}"` : "none";
+  const highlights = project.highlights 
+    ? `(${project.highlights.map(h => `"${typstEscape(h)}"`).join(", ")})`
+    : "()";
 
   const linkUrl = project.projectLink ? `"${typstEscape(project.projectLink)}"` : "none";
 
   return `experience(
   title: "${typstEscape(project.title)}",
   titleRole: "",
-  description: (${descriptionItems}),
+  summary: ${summary},
+  highlights: ${highlights},
   location: "",
   date: "",
   linkUrl: ${linkUrl},
