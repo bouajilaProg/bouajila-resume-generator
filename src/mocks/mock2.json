@@ -38,7 +38,7 @@
           "institution": "Higher Institute of Technological Studies (ISET)",
           "startDate": "2022",
           "endDate": "2025",
-          "notes": [
+          "highlights": [
             "Major in Software Engineering",
             "Academic Excellence Award 2024"
           ]
@@ -69,11 +69,11 @@
       "body": [
         {
           "title": "Tunisia Event Hub",
-          "notes": [
+          "summary": "A community-driven platform where users can post and find local cultural events.",
+          "highlights": [
             "Built a full-stack platform for local event discovery."
           ],
           "tools": "React, Node.js, Express, MongoDB",
-          "description": "A community-driven platform where users can post and find local cultural events.",
           "projectLink": "https://eventhub.tn",
           "repoLink": "https://github.com/imed-dev/event-hub",
           "id": 1
