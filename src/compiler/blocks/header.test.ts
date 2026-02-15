@@ -22,4 +22,10 @@ describe("Header", () => {
     expect(result).toContain('"John \\# Doe"');
     expect(result).toContain('(type: "email", text: "test \\"quoted\\" @example.com")');
   });
+
+  it("should work with empty contacts", () => {
+    const result = Header("Jane Doe", []);
+    expect(result).toContain('"Jane Doe"');
+    expect(result).toContain('(\n    \n)');
+  });
 });

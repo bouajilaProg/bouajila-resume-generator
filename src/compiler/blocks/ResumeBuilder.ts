@@ -62,8 +62,8 @@ export class ResumeBuilder {
   }
 
   setHeader(name?: string, contacts?: Contact[]) {
-    if (this.isEmpty(name) || this.isEmpty(contacts)) return this;
-    this.parts.push(blocks.Header(name!, contacts!), blocks.spacing(1));
+    if (this.isEmpty(name)) return this;
+    this.parts.push(blocks.Header(name!, contacts || []), blocks.spacing(1));
     return this;
   }
 
