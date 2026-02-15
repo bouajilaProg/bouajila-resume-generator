@@ -1,90 +1,181 @@
 {
   "template": "basic-resume",
   "personalInfo": {
-    "name": "imed",
-    "location": "tunisie",
-    "description": "imed ya5ra wra talvza",
+    "name": "Imed Eddine",
+    "location": "Tunis, Tunisia",
+    "description": "Aspiring Software Engineer with a focus on building efficient, user-centric web applications. Passionate about clean code, algorithmic problem solving, and staying up-to-date with the latest JavaScript frameworks.",
     "contact": [
-      {
-        "id": 1766695653455,
-        "type": "Email",
-        "value": "bouajilamedyessine@gmail.com"
-      },
       {
         "id": 1766695671060,
         "type": "Phone",
-        "value": "28747707"
+        "value": "+216 28 747 707"
+      },
+      {
+        "id": 1766695671061,
+        "type": "Email",
+        "value": "imed.dev@gmail.com"
+      },
+      {
+        "id": 1766695671062,
+        "type": "GitHub",
+        "value": "github.com/imed-dev"
       }
     ],
     "hobbies": [
-      "Reading",
-      "coding",
-      "dev"
+      "Competitive Programming",
+      "Tech Blogging",
+      "Strategic Gaming"
     ]
   },
   "sections": [
     {
       "type": "education",
-      "body": [],
+      "body": [
+        {
+          "id": 1,
+          "degreeType": "Bachelor",
+          "degreeName": "Computer Science",
+          "institution": "Higher Institute of Technological Studies (ISET)",
+          "startDate": "2022",
+          "endDate": "2025",
+          "notes": [
+            "Major in Software Engineering",
+            "Academic Excellence Award 2024"
+          ]
+        }
+      ],
       "enabled": true
     },
     {
       "type": "work_experience",
-      "body": [],
+      "body": [
+        {
+          "id": 1,
+          "jobTitle": "Front-End Intern",
+          "company": "Smart Solution Tech",
+          "location": "Tunis",
+          "startDate": "06-2024",
+          "endDate": "09-2024",
+          "highlights": [
+            "Redesigned the client dashboard using React and Tailwind CSS.",
+            "Improved page load speed by 25% through image optimization and lazy loading."
+          ]
+        }
+      ],
       "enabled": true
     },
     {
       "type": "project",
       "body": [
         {
-          "title": "pp",
+          "title": "Tunisia Event Hub",
           "notes": [
-            "pp"
+            "Built a full-stack platform for local event discovery."
           ],
-          "tools": "pp",
-          "projectLink": "pp",
-          "repoLink": "pp",
+          "tools": "React, Node.js, Express, MongoDB",
+          "description": "A community-driven platform where users can post and find local cultural events.",
+          "projectLink": "https://eventhub.tn",
+          "repoLink": "https://github.com/imed-dev/event-hub",
           "id": 1
         }
-      ]
+      ],
+      "enabled": true
     },
     {
       "type": "skills",
       "body": {
-        "languages": [],
-        "softSkills": []
+        "languages": [
+          {
+            "id": 1,
+            "name": "JavaScript",
+            "type": "LANG"
+          },
+          {
+            "id": 2,
+            "name": "Python",
+            "type": "LANG"
+          },
+          {
+            "id": 3,
+            "name": "SQL",
+            "type": "LANG"
+          }
+        ],
+        "softSkills": [
+          {
+            "id": 1,
+            "name": "Critical Thinking",
+            "type": "SOFT"
+          },
+          {
+            "id": 2,
+            "name": "Collaborative Teamwork",
+            "type": "SOFT"
+          },
+          {
+            "id": 3,
+            "name": "Adaptability",
+            "type": "SOFT"
+          }
+        ]
       },
       "enabled": true
     },
     {
       "type": "extracurricular",
-      "body": [],
+      "body": [
+        {
+          "id": 1,
+          "activityName": "Coding Club Lead",
+          "startDate": "2023",
+          "endDate": "2024"
+        }
+      ],
       "enabled": true
     },
     {
       "type": "certification",
-      "body": [],
+      "body": [
+        {
+          "id": 1,
+          "name": "Meta Front-End Developer Certificate",
+          "issuingOrganization": "Coursera",
+          "issueDate": "2024"
+        }
+      ],
       "enabled": true
     },
     {
       "type": "languages",
       "body": [
         {
-          "name": "french",
-          "proficiency": "Beginner",
+          "name": "French",
+          "proficiency": "Intermediate",
           "id": 2
+        },
+        {
+          "name": "English",
+          "proficiency": "Fluent",
+          "id": 3
+        },
+        {
+          "name": "Arabic",
+          "proficiency": "Native",
+          "id": 4
         }
-      ]
+      ],
+      "enabled": true
     },
     {
       "type": "hobbies",
       "body": [
         {
-          "name": "chess",
-          "description": "i love chess",
+          "name": "Chess",
+          "description": "Actively participating in local tournaments and analyzing grandmaster games.",
           "id": 1
         }
-      ]
+      ],
+      "enabled": true
     }
   ]
 }
