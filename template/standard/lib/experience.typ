@@ -3,7 +3,8 @@
 #let experience(
   title: "", 
   titleRole: "", 
-  description: (), 
+  summary: none,
+  highlights: (),
   location: none, 
   date: none, 
   linkUrl: none,
@@ -23,19 +24,15 @@
     ])
   }
   
-  // Logic: Check if description exists, then decide between plain text or list
-  if description != () and description != "" and description != none {
-    let desc-items = if type(description) == str { (description,) } else { description }
-    
-    if desc-items.len() == 1 {
-      // Single item: Render as standard text
-      left-items.push(desc-items.at(0))
-    } else {
-      // Multiple items: Render as a bulleted list
-      left-items.push(
-        list(..desc-items, tight: true)
-      )
-    }
+  if summary != none and summary != "" {
+    left-items.push(summary)
+  }
+  
+  if highlights != () and highlights != none and highlights != "" {
+    let items = if type(highlights) == str { (highlights,) } else { highlights }
+    left-items.push(
+      list(..items, tight: true)
+    )
   }
   
   if tags != () and tags != none and tags != "" {
