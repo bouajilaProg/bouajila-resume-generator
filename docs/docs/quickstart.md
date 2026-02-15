@@ -69,6 +69,10 @@ const myResume: Resume = {
           startDate: "2020",
           endDate: "Present",
           summary: "Building amazing things.",
+          highlights: [
+            "Increased team velocity by 20%.",
+            "Implemented new CI/CD pipeline."
+          ],
           keywords: "React, Node.js"
         }
       ]

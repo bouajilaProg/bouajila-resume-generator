@@ -54,6 +54,8 @@ const myResume: Resume = {
           degreeName: "Computer Science",
           degreeType: "B.S.",
           institution: "State University",
+          summary: "Graduated with Honors, GPA: 3.8/4.0",
+          highlights: ["Dean's List 2017-2019", "Thesis on Distributed Hash Tables"],
           startDate: "2018",
           endDate: "2022"
         }
