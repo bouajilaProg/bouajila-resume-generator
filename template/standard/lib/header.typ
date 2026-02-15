@@ -2,13 +2,14 @@
 #import "../../commun/icons/icons.typ": icon
 
 #let header(name, contacts) = {
+  let contacts_list = if type(contacts) == array { contacts } else { (contacts,) }
   set align(center)
   v(2pt)
   text(fill: primary-color, weight: 700, size: size-name)[#name]
   v(header-v-offset)
   
   block(width: 100%, align(center)[
-    #contacts.map(contact => {
+    #contacts_list.map(contact => {
       box(inset: (x: 4pt))[
         #stack(
           dir: ltr, 
