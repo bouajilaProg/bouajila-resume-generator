@@ -6,7 +6,8 @@ interface WorkExperience {
   location: string,
   startDate: string,
   endDate: string,
-  summary: string,
+  summary?: string,
+  highlights?: string[],
   keywords: string,
 }
 

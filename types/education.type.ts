@@ -11,7 +11,8 @@ interface EducationItem {
   id: number;
   degreeType: DegreeType;
   degreeName: string;
-  description: string;
+  summary?: string;
+  highlights?: string[];
   institution: string;
   startDate: string;
   endDate: string;

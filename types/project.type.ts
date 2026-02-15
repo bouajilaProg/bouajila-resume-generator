@@ -2,9 +2,9 @@
 interface Project {
   id: number;
   title: string;
-  notes: string[];
+  summary?: string;
+  highlights?: string[];
   tools: string,
-
   projectLink?: string,
 }
 
