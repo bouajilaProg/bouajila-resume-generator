@@ -11,14 +11,16 @@ describe("EducationBlock", () => {
       institution: "State University",
       startDate: "2016",
       endDate: "2020",
-      description: "Honors student",
+      summary: "Honors student",
+      highlights: ["GPA 4.0", "Top 1%"],
       keySkills: "Algorithms, Data Structures"
     };
 
     const result = EducationBlock(mockEdu);
     expect(result).toContain('title: "Computer Science"');
     expect(result).toContain('titleRole: "State University"');
-    expect(result).toContain('description: "Honors student"');
+    expect(result).toContain('summary: "Honors student"');
+    expect(result).toContain('highlights: ("GPA 4.0", "Top 1%")');
     expect(result).toContain('tags: ("Algorithms", "Data Structures")');
   });
 });

@@ -8,13 +8,15 @@ describe("ProjectBlock", () => {
       id: 1,
       title: "My Project",
       tools: "TypeScript, Vitest",
-      notes: ["Built this", "Tested that"],
+      summary: "A cool project",
+      highlights: ["Built this", "Tested that"],
       projectLink: "https://example.com"
     };
 
     const result = ProjectBlock(mockProj);
     expect(result).toContain('title: "My Project"');
-    expect(result).toContain('description: ("Built this", "Tested that")');
+    expect(result).toContain('summary: "A cool project"');
+    expect(result).toContain('highlights: ("Built this", "Tested that")');
     expect(result).toContain('tags: ("TypeScript", "Vitest")');
     expect(result).toContain('linkUrl: "https://example.com"');
   });

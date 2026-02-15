@@ -12,13 +12,15 @@ describe("ExperienceBlock", () => {
       startDate: "2020-01-01",
       endDate: "Present",
       summary: "Developed cool stuff",
+      highlights: ["Point 1", "Point 2"],
       keywords: "React, Node.js"
     };
 
     const result = ExperienceBlock(mockExp);
     expect(result).toContain('title: "Software Engineer"');
     expect(result).toContain('titleRole: "Tech Corp"');
-    expect(result).toContain('description: "Developed cool stuff"');
+    expect(result).toContain('summary: "Developed cool stuff"');
+    expect(result).toContain('highlights: ("Point 1", "Point 2")');
     expect(result).toContain('tags: ("React",  "Node.js")');
   });
 
@@ -31,12 +33,14 @@ describe("ExperienceBlock", () => {
       startDate: "2021",
       endDate: "2022",
       summary: "Escaping \\ check",
+      highlights: ["Tag with \"quote\""],
       keywords: "Tag1, Tag2"
     };
 
     const result = ExperienceBlock(mockExp);
     expect(result).toContain('title: "Engineer \\"Senior\\""');
     expect(result).toContain('titleRole: "Company \\#1"');
-    expect(result).toContain('description: "Escaping \\\\ check"');
+    expect(result).toContain('summary: "Escaping \\\\ check"');
+    expect(result).toContain('highlights: ("Tag with \\"quote\\"")');
   });
 });
