@@ -16,7 +16,8 @@ Projects allow you to demonstrate your skills in a practical way, especially if 
 interface Project {
   id: number;
   title: string;
-  notes: string[]; // List of bullet points describing the project
+  summary?: string;
+  highlights?: string[];
   tools: string;  // Comma-separated list of technologies used
   projectLink?: string; // Optional link to the project (e.g., GitHub, Demo)
 }
@@ -31,9 +32,10 @@ interface Project {
     {
       "id": 1,
       "title": "E-Commerce Platform",
-      "notes": [
-        "Built a full-featured online store with payment integration.",
-        "Implemented real-time inventory tracking."
+      "summary": "A full-featured online store with payment integration.",
+      "highlights": [
+        "Implemented real-time inventory tracking.",
+        "Integrated Stripe for secure payments."
       ],
       "tools": "React, Node.js, Stripe, PostgreSQL",
       "projectLink": "https://github.com/user/project"

@@ -20,7 +20,8 @@ interface WorkExperience {
   location: string;
   startDate: string;
   endDate: string;
-  summary: string;
+  summary?: string;
+  highlights?: string[];
   keywords: string; // Comma-separated list
 }
 ```
@@ -39,6 +40,10 @@ interface WorkExperience {
       "startDate": "Jan 2020",
       "endDate": "Present",
       "summary": "Full-stack development using Node.js and React.",
+      "highlights": [
+        "Architected a microservices-based system reducing latency by 40%.",
+        "Mentored 5 junior developers."
+      ],
       "keywords": "TypeScript, React, AWS"
     }
   ]

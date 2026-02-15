@@ -20,7 +20,8 @@ interface EducationItem {
   institution: string;
   startDate: string;
   endDate: string;
-  description: string;
+  summary?: string;
+  highlights?: string[];
   keySkills: string; // Comma-separated list
 }
 ```
@@ -38,7 +39,11 @@ interface EducationItem {
       "institution": "University of Tech",
       "startDate": "2016",
       "endDate": "2020",
-      "description": "Graduated with Honors.",
+      "summary": "Graduated with Honors.",
+      "highlights": [
+        "Dean's List 2017-2019",
+        "GPA: 3.8/4.0"
+      ],
       "keySkills": "Algorithms, Data Structures"
     }
   ]
