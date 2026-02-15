@@ -25,7 +25,6 @@ describe("Header", () => {
 
   it("should work with empty contacts", () => {
     const result = Header("Jane Doe", []);
-    expect(result).toContain('"Jane Doe"');
-    expect(result).toContain('(\n    \n)');
+    expect(result).toBe('#header("Jane Doe", ())');
   });
 });

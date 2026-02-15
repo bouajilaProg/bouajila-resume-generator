@@ -63,7 +63,8 @@ export class ResumeBuilder {
 
   setHeader(name?: string, contacts?: Contact[]) {
     if (this.isEmpty(name)) return this;
-    this.parts.push(blocks.Header(name!, contacts || []), blocks.spacing(1));
+    const hasContacts = contacts && contacts.length > 0;
+    this.parts.push(blocks.Header(name!, contacts || []), blocks.spacing(hasContacts ? 1 : 0.4));
     return this;
   }
 
