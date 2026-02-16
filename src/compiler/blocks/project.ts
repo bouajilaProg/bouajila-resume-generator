@@ -3,7 +3,9 @@ import { typstEscape } from "../../utils/escape";
 
 function ProjectBlock(project: Project): string {
   // Map tags to quoted strings for Typst array syntax
-  const tags = project.tools.split(",").map(t => `"${typstEscape(t.trim())}"`).join(", ");
+  const tags = project.tools 
+    ? project.tools.split(",").map(t => `"${typstEscape(t.trim())}"`).join(", ")
+    : "";
 
   const summary = project.summary ? `"${typstEscape(project.summary)}"` : "none";
   const highlights = project.highlights 

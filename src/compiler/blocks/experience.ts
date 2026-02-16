@@ -3,7 +3,9 @@ import { typstEscape } from "../../utils/escape";
 
 function ExperienceBlock(experience: WorkExperience): string {
   const date = `${typstEscape(experience.startDate)} - ${typstEscape(experience.endDate)}`;
-  const tags = experience.keywords.split(",").map(k => typstEscape(k.trim()));
+  const tags = experience.keywords 
+    ? experience.keywords.split(",").map(k => typstEscape(k.trim()))
+    : [];
   
   const summary = experience.summary ? `"${typstEscape(experience.summary)}"` : "none";
   const highlights = experience.highlights 

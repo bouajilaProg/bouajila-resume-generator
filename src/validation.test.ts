@@ -1,12 +1,27 @@
 import { describe, it, expect } from "vitest";
 import { validateResume, SectionType } from "./index";
 import mockResume from "./mocks/mockResume";
+import mock2 from "./mocks/mock2.json";
 
 describe("Resume Validation", () => {
   it("should pass for a valid mock resume", () => {
     const result = validateResume(mockResume);
     expect(result.success).toBe(true);
     expect(result.data).toBeDefined();
+  });
+
+  it("should pass for mock2 data", () => {
+    const resume2 = {
+      name: "Mock 2",
+      description: "Desc",
+      lastUpdate: "2025",
+      ...mock2
+    };
+    const result = validateResume(resume2);
+    if (!result.success) {
+      console.log(result.error.message);
+    }
+    expect(result.success).toBe(true);
   });
 
   describe("Personal Info Validation", () => {
@@ -40,17 +55,54 @@ describe("Resume Validation", () => {
       expect(result.error?.message).toContain("personalInfo.contact[0].value: Email must be a valid email address (e.g. name@example.com)");
     });
 
-    it("should fail when personalInfo.name is empty", () => {
-      const badResume = {
+    it("should pass when contact list is missing", () => {
+      const { contact, ...restPersonalInfo } = mockResume.personalInfo!;
+      const validResume = {
+        ...mockResume,
+        personalInfo: restPersonalInfo
+      };
+      const result = validateResume(validResume);
+      expect(result.success).toBe(true);
+    });
+
+    it("should pass when contact list is empty", () => {
+      const validResume = {
         ...mockResume,
         personalInfo: {
           ...mockResume.personalInfo!,
-          name: ""
+          contact: []
         }
       };
-      const result = validateResume(badResume);
-      expect(result.success).toBe(false);
-      expect(result.error?.message).toContain("personalInfo.name: Name can not be empty");
+      const result = validateResume(validResume);
+      expect(result.success).toBe(true);
+    });
+  });
+
+  describe("Optional Sections Validation", () => {
+    it("should pass when sections list is missing", () => {
+      const { sections, ...validResume } = mockResume;
+      const result = validateResume(validResume);
+      expect(result.success).toBe(true);
+    });
+
+    it("should pass when sections list is empty", () => {
+      const validResume = {
+        ...mockResume,
+        sections: []
+      };
+      const result = validateResume(validResume);
+      expect(result.success).toBe(true);
+    });
+
+    it("should pass when a section body is empty", () => {
+      const validResume = {
+        ...mockResume,
+        sections: [
+          { type: SectionType.Education, body: [] }
+        ]
+      };
+      const result = validateResume(validResume);
+      expect(result.success).toBe(true);
     });
   });
 

@@ -46,7 +46,6 @@ import { Resume, SectionType } from "bouajila-resume-generator";
 const myResume: Resume = {
   name: "Jane Doe Resume",
   description: "Master Resume",
-  template: "standard",
   lastUpdate: "2025-02-09",
   personalInfo: {
     name: "Jane Doe",

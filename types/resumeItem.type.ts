@@ -45,11 +45,10 @@ export type ResumeSection =
 export interface Resume {
   name: string;
   description: string;
-  template: string;
   lastUpdate: string;
   personalInfo?: PersonalInfo;
 
-  sections: ResumeSection[];
+  sections?: ResumeSection[];
 }
 
 // --- Zod Schemas ---
@@ -57,18 +56,15 @@ export interface Resume {
 export const ResumeSectionSchema = z.discriminatedUnion("type", [
   z.object({
     type: z.literal(SectionType.Education),
-    body: z.array(EducationItemSchema, { error: "Education body must be a list" })
-      .min(1, { error: "Education section must have at least one entry" }),
+    body: z.array(EducationItemSchema, { error: "Education body must be a list" }),
   }),
   z.object({
     type: z.literal(SectionType.Project),
-    body: z.array(ProjectSchema, { error: "Projects body must be a list" })
-      .min(1, { error: "Projects section must have at least one entry" }),
+    body: z.array(ProjectSchema, { error: "Projects body must be a list" }),
   }),
   z.object({
     type: z.literal(SectionType.WorkExperience),
-    body: z.array(WorkExperienceSchema, { error: "Work experience body must be a list" })
-      .min(1, { error: "Work experience section must have at least one entry" }),
+    body: z.array(WorkExperienceSchema, { error: "Work experience body must be a list" }),
   }),
   z.object({
     type: z.literal(SectionType.Skills),
@@ -76,23 +72,19 @@ export const ResumeSectionSchema = z.discriminatedUnion("type", [
   }),
   z.object({
     type: z.literal(SectionType.Certification),
-    body: z.array(CertificationSchema, { error: "Certifications body must be a list" })
-      .min(1, { error: "Certifications section must have at least one entry" }),
+    body: z.array(CertificationSchema, { error: "Certifications body must be a list" }),
   }),
   z.object({
     type: z.literal(SectionType.ExtraCurricular),
-    body: z.array(ExtraCurricularActivitySchema, { error: "Extra-curricular body must be a list" })
-      .min(1, { error: "Extra-curricular section must have at least one entry" }),
+    body: z.array(ExtraCurricularActivitySchema, { error: "Extra-curricular body must be a list" }),
   }),
   z.object({
     type: z.literal(SectionType.Hobbies),
-    body: HobbiesSchema
-      .min(1, { error: "Hobbies section must have at least one entry" }),
+    body: HobbiesSchema,
   }),
   z.object({
     type: z.literal(SectionType.Languages),
-    body: LanguagesSchema
-      .min(1, { error: "Languages section must have at least one entry" }),
+    body: LanguagesSchema,
   }),
 ]);
 
@@ -101,12 +93,10 @@ export const ResumeSchema = z.object({
     .min(1, { error: "Resume name can not be empty" }),
   description: z.string({ error: "Resume description is required" })
     .min(1, { error: "Resume description can not be empty" }),
-  template: z.string({ error: "Template name is required" })
-    .min(1, { error: "Template name can not be empty" }),
   lastUpdate: z.string({ error: "Last update date is required" })
     .min(1, { error: "Last update date can not be empty" }),
   personalInfo: PersonalInfoSchema.optional(),
   sections: z.array(ResumeSectionSchema, {
     error: "Sections must be a list",
-  }),
+  }).optional(),
 });

@@ -18,7 +18,7 @@ interface EducationItem {
   institution: string;
   startDate: string;
   endDate: string;
-  keySkills: string;
+  keySkills?: string;
 }
 
 export type { EducationItem };
@@ -45,8 +45,9 @@ export const EducationItemSchema = z.object({
     .min(1, { error: "Education start date can not be empty" }),
   endDate: z.string({ error: "Education end date is required" })
     .min(1, { error: "Education end date can not be empty" }),
-  keySkills: z.string({ error: "Key skills field is required" })
-    .min(1, { error: "Key skills can not be empty" }),
+  keySkills: z.string({ error: "Key skills field must be text" })
+    .min(1, { error: "Key skills can not be empty" })
+    .optional(),
 });
 
 

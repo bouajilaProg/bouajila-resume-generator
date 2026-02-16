@@ -14,7 +14,6 @@ import mock2 from "./mock2.json";
 const mockResume: Resume = {
   name: "Jane Developer",
   description: "Full-Stack Developer specializing in React & Node.js",
-  template: "basic-resume",
   lastUpdate: "2025",
 
   personalInfo: {

@@ -3,7 +3,9 @@ import { typstEscape } from "../../utils/escape";
 
 function EducationBlock(education: EducationItem): string {
   const date = `${typstEscape(education.startDate)} - ${typstEscape(education.endDate)}`;
-  const tags = education.keySkills.split(",").map((k: string) => typstEscape(k.trim()));
+  const tags = education.keySkills 
+    ? education.keySkills.split(",").map((k: string) => typstEscape(k.trim()))
+    : [];
 
   const summary = education.summary ? `"${typstEscape(education.summary)}"` : "none";
   const highlights = education.highlights 

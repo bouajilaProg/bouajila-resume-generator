@@ -22,7 +22,7 @@ export interface PersonalInfo {
   name: string;
   location: string;
   description: string;
-  contact: Contact[];
+  contact?: Contact[];
 }
 
 // --- Zod Schemas ---
@@ -87,6 +87,6 @@ export const PersonalInfoSchema = z.object({
     .min(1, { error: "Description can not be empty" }),
   contact: z.array(ContactSchema, {
     error: "Contact list is required",
-  }).min(1, { error: "At least one contact method is required" }),
+  }).optional(),
 });
 

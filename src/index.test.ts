@@ -25,4 +25,26 @@ describe("bouajila-resume-generator integration", () => {
     expect(result.data.buffer instanceof Buffer).toBe(true);
     expect(result.data.buffer!.length).toBeGreaterThan(0);
   }, 30000); // Higher timeout for compilation
+
+  it("should handle a minimal resume (no contacts, no sections)", async () => {
+    const minimalResume = {
+      name: "Minimal Resume",
+      description: "A minimal resume test",
+      lastUpdate: "2025",
+      personalInfo: {
+        name: "Minimal",
+        location: "Nowhere",
+        description: "Minimal desc"
+      }
+    };
+    const result = await compile(minimalResume as any);
+    
+    if (!result.success) {
+      if (result.error.message.includes("Typst not found")) return;
+      throw result.error;
+    }
+
+    expect(result.data.buffer).toBeDefined();
+    expect(result.data.buffer!.length).toBeGreaterThan(0);
+  }, 30000);
 });

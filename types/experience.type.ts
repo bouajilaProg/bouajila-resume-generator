@@ -10,7 +10,7 @@ interface WorkExperience {
   endDate: string,
   summary?: string,
   highlights?: string[],
-  keywords: string,
+  keywords?: string,
 }
 
 export type { WorkExperience };
@@ -34,6 +34,7 @@ export const WorkExperienceSchema = z.object({
     z.string({ error: "Each highlight must be text" }),
     { error: "Highlights must be a list" }
   ).optional(),
-  keywords: z.string({ error: "Keywords field is required" })
-    .min(1, { error: "Keywords can not be empty" }),
+  keywords: z.string({ error: "Keywords field must be text" })
+    .min(1, { error: "Keywords can not be empty" })
+    .optional(),
 });

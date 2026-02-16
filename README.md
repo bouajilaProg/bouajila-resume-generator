@@ -35,7 +35,6 @@ import { compile, Resume, SectionType } from "bouajila-resume-generator";
 const myResume: Resume = {
   name: "Jane Doe",
   description: "Software Engineer",
-  template: "standard",
   lastUpdate: "2025-02-09",
   personalInfo: {
     name: "Jane Doe",

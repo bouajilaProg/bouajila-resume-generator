@@ -6,7 +6,7 @@ interface Project {
   title: string;
   summary?: string;
   highlights?: string[];
-  tools: string,
+  tools?: string,
   projectLink?: string,
 }
 
@@ -23,8 +23,9 @@ export const ProjectSchema = z.object({
     z.string({ error: "Each highlight must be text" }),
     { error: "Highlights must be a list" }
   ).optional(),
-  tools: z.string({ error: "Project tools field is required" })
-    .min(1, { error: "Project tools can not be empty" }),
+  tools: z.string({ error: "Project tools field must be text" })
+    .min(1, { error: "Project tools can not be empty" })
+    .optional(),
   projectLink: z.string({ error: "Project link must be text" })
     .url({ error: "Project link must be a valid URL" })
     .optional(),

@@ -17,7 +17,7 @@ interface PersonalInfo {
   name: string; // Your full name
   location: string; // Your city, state/country
   description: string; // A brief professional summary or "Profile"
-  contact: Contact[]; // List of contact methods
+  contact?: Contact[]; // List of contact methods (optional)
 }
 
 interface Contact {

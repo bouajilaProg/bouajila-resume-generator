@@ -1,5 +1,4 @@
 {
-  "template": "basic-resume",
   "personalInfo": {
     "name": "Imed Eddine",
     "location": "Tunis, Tunisia",
@@ -33,7 +32,7 @@
       "body": [
         {
           "id": 1,
-          "degreeType": "Bachelor",
+          "degreeType": "BS",
           "degreeName": "Computer Science",
           "institution": "Higher Institute of Technological Studies (ISET)",
           "startDate": "2022",
@@ -43,8 +42,7 @@
             "Academic Excellence Award 2024"
           ]
         }
-      ],
-      "enabled": true
+      ]
     },
     {
       "type": "work_experience",
@@ -61,8 +59,7 @@
             "Improved page load speed by 25% through image optimization and lazy loading."
           ]
         }
-      ],
-      "enabled": true
+      ]
     },
     {
       "type": "project",
@@ -75,11 +72,9 @@
           ],
           "tools": "React, Node.js, Express, MongoDB",
           "projectLink": "https://eventhub.tn",
-          "repoLink": "https://github.com/imed-dev/event-hub",
           "id": 1
         }
-      ],
-      "enabled": true
+      ]
     },
     {
       "type": "skills",
@@ -118,8 +113,7 @@
             "type": "SOFT"
           }
         ]
-      },
-      "enabled": true
+      }
     },
     {
       "type": "extracurricular",
@@ -130,8 +124,7 @@
           "startDate": "2023",
           "endDate": "2024"
         }
-      ],
-      "enabled": true
+      ]
     },
     {
       "type": "certification",
@@ -142,8 +135,7 @@
           "issuingOrganization": "Coursera",
           "issueDate": "2024"
         }
-      ],
-      "enabled": true
+      ]
     },
     {
       "type": "languages",
@@ -163,8 +155,7 @@
           "proficiency": "Native",
           "id": 4
         }
-      ],
-      "enabled": true
+      ]
     },
     {
       "type": "hobbies",
@@ -174,8 +165,7 @@
           "description": "Actively participating in local tournaments and analyzing grandmaster games.",
           "id": 1
         }
-      ],
-      "enabled": true
+      ]
     }
   ]
 }

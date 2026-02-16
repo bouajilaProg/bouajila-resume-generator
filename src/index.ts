@@ -108,8 +108,10 @@ export async function unsafeCompile(
     .setHeader(resume?.personalInfo?.name, resume?.personalInfo?.contact)
     .addProfile(resume?.personalInfo?.description);
 
-  for (const section of resume.sections) {
-    builder.addSection(section);
+  if (resume.sections) {
+    for (const section of resume.sections) {
+      builder.addSection(section);
+    }
   }
   const resumeString = builder.build();
 
@@ -182,8 +184,10 @@ export function generateTypstSource(resume: Resume): string {
     .setHeader(resume?.personalInfo?.name, resume?.personalInfo?.contact)
     .addProfile(resume?.personalInfo?.description);
 
-  for (const section of resume.sections) {
-    builder.addSection(section);
+  if (resume.sections) {
+    for (const section of resume.sections) {
+      builder.addSection(section);
+    }
   }
 
   return builder.build();
