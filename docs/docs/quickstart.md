@@ -83,7 +83,7 @@ const myResume: Resume = {
 
 ## 3. Generate PDF
 
-Use the `compile` function to produce your PDF. It returns a `Result` object to safely handle errors without throwing.
+Use the `compile` function to produce your PDF. It returns a `Result` object to safely handle errors without throwing. The generator now includes automatic **Zod validation** for your resume data. If the data is invalid, `compile` will return a detailed error listing exactly which fields are problematic.
 
 ```typescript
 import { compile } from "bouajila-resume-generator";
@@ -93,6 +93,8 @@ const result = await compile(myResume, { outputPath: "./resume.pdf" });
 if (result.success) {
   console.log("PDF generated successfully!");
 } else {
+  // result.error.message will contain specific field errors like:
+  // "personalInfo.contact[0].value: Phone number can not contain letters"
   console.error("Failed to generate PDF:", result.error.message);
 }
 ```
@@ -105,6 +107,22 @@ import { unsafeCompile } from "bouajila-resume-generator";
 try {
   await unsafeCompile(myResume, { outputPath: "./resume.pdf" });
 } catch (error) {
-  console.error(error);
+  // error.message will contain all validation failures
+  console.error(error.message);
 }
 ```
+
+## 4. Manual Validation
+
+If you want to validate your resume data before compilation, you can use the `validateResume` utility:
+
+```typescript
+import { validateResume } from "bouajila-resume-generator";
+
+const result = validateResume(myResume);
+
+if (!result.success) {
+  console.log("Found errors:", result.error.message);
+}
+```
+
