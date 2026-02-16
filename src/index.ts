@@ -7,6 +7,8 @@ import { unsafeCompileToPdf, unsafeVerifyEnv, projectRoot } from "./compiler/com
 // Export all types and values (like SectionType) from the types directory
 export * from "../types/index";
 import type { Resume, Result } from "../types/index";
+import { ResumeSchema } from "../types/index";
+import { z } from "zod";
 
 export interface CompileOptions {
   /** Output format - "buffer" returns Node Buffer, "blob" returns Blob */
@@ -23,7 +25,51 @@ export interface CompileResult {
 }
 
 /**
- * Compiles a Resume object into a PDF. Throws an error if compilation fails.
+ * Formats Zod validation issues into a list of explicit, human-readable messages.
+ * Each message includes the field path so the user knows exactly what is wrong.
+ *
+ * Example output:
+ *   ["personalInfo.contact[0].value: Phone number can not contain letters"]
+ */
+export function formatValidationErrors(error: z.ZodError): string[] {
+  return error.issues.map((issue) => {
+    const fieldPath = issue.path
+      .map((segment, i) =>
+        typeof segment === "number"
+          ? `[${segment}]`
+          : i > 0
+            ? `.${String(segment)}`
+            : String(segment)
+      )
+      .join("");
+
+    return fieldPath ? `${fieldPath}: ${issue.message}` : issue.message;
+  });
+}
+
+/**
+ * Validates a Resume object against the schema.
+ * Returns a Result with the validated resume or an Error whose message
+ * contains every field-level validation problem.
+ */
+export function validateResume(resume: unknown): Result<Resume> {
+  const result = ResumeSchema.safeParse(resume);
+
+  if (result.success) {
+    return { success: true, data: result.data as Resume, error: null };
+  }
+
+  const messages = formatValidationErrors(result.error);
+  const error = new Error(
+    `Resume validation failed:\n${messages.map((m) => `  - ${m}`).join("\n")}`
+  );
+
+  return { success: false, data: null, error };
+}
+
+/**
+ * Compiles a Resume object into a PDF. Throws an error if validation or compilation fails.
+ * Validation errors list every invalid field explicitly.
  * 
  * @param resume - The resume data to compile
  * @param options - Optional configuration for output format
@@ -34,6 +80,12 @@ export async function unsafeCompile(
   options: CompileOptions = {}
 ): Promise<CompileResult> {
   const { format = "buffer", outputPath } = options;
+
+  // --- Validate resume data first ---
+  const validation = validateResume(resume);
+  if (!validation.success) {
+    throw validation.error;
+  }
 
   // confirm Typst is available
   await unsafeVerifyEnv();
@@ -88,6 +140,7 @@ export async function unsafeCompile(
 /**
  * Safely compiles a Resume object into a PDF.
  * Returns a Result object instead of throwing errors.
+ * Validation errors list every invalid field explicitly.
  * 
  * @param resume - The resume data to compile
  * @param options - Optional configuration for output format
@@ -111,12 +164,18 @@ export async function compile(
 
 /**
  * Generates Typst source code from a Resume object without compiling to PDF.
- * Useful for debugging or custom Typst workflows.
+ * Validates the resume data first — throws if invalid.
  * 
  * @param resume - The resume data to convert
  * @returns The Typst source code as a string
  */
 export function generateTypstSource(resume: Resume): string {
+  // --- Validate resume data first ---
+  const validation = validateResume(resume);
+  if (!validation.success) {
+    throw validation.error;
+  }
+
   const builder = new ResumeBuilder();
   builder
     .setBase()
