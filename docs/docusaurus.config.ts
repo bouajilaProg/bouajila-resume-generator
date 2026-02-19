@@ -14,16 +14,12 @@ const config: Config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  // Set the production url of your site here
-  url: 'https://bouajila-resume-generator.netlify.app',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  url: 'https://bouajilaprog.github.io',
+  baseUrl: '/bouajila-resume-generator/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'bouajila', // Usually your GitHub org/user name.
-  projectName: 'bouajila-resume-generator', // Usually your repo name.
+  organizationName: 'bouajilaProg',
+  projectName: 'bouajila-resume-generator',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
 
@@ -45,7 +41,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/bouajilaProg/bouajila-resume-generator/tree/main/website/',
+            'https://github.com/bouajilaProg/bouajila-resume-generator/tree/main/docs/',
         },
         blog: false,
         theme: {
