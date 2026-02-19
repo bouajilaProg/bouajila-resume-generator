@@ -1,33 +1,56 @@
-# bouajila-resume-generator 
+# bouajila-resume-generator
 
-`bouajila-resume-generator` is a TypeScript library designed to generate professional PDF resumes from structured data using [Typst](https://typst.app/). 
+[![GitHub stars](https://img.shields.io/github/stars/bouajilaprog/bouajila-resume-generator?style=flat&logo=github)](https://github.com/bouajilaprog/bouajila-resume-generator) [![Issues](https://img.shields.io/github/issues/bouajilaprog/bouajila-resume-generator?style=flat&logo=github)](https://github.com/bouajilaprog/bouajila-resume-generator/issues) [![License: ISC](https://img.shields.io/badge/license-ISC-brightgreen?style=flat)](LICENSE) [![Build Status](https://img.shields.io/github/actions/workflow/status/bouajilaprog/bouajila-resume-generator/ci.yml?branch=main&style=flat&logo=github)](https://github.com/bouajilaprog/bouajila-resume-generator/actions) [![TypeScript](https://img.shields.io/badge/TypeScript-%234785CC.svg?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![npm](https://img.shields.io/npm/v/bouajila-resume-generator?style=flat&logo=npm)](https://www.npmjs.com/package/bouajila-resume-generator)
 
-It provides a programmatic way to build resumes by defining content in a type-safe manner and compiling it into high-quality PDFs.
+License: ISC
 
-## Features
+`bouajila-resume-generator` is a TypeScript toolkit that turns structured data into polished PDF resumes using Typst. It focuses on type-safe schemas, composable sections, and a clean API for generating PDFs or Typst source.
 
-- **Type-Safe Resume Definition:** Use TypeScript interfaces to define your resume structure.
-- **Typst-Powered:** Leverages the power and speed of the Typst typesetting system.
-- **Customizable:** Easily extendable blocks and templates.
+Table of contents
 
-## Prerequisites
+- About
+- Features
+- Technical stack
+- Setup
+- Development
+- Contributing
+- License
 
-Before using `bouajila-resume-generator`, ensure you have the following installed:
+About
 
-1. **Node.js** (>= 18)
-2. **pnpm** (recommended)
-3. **Typst CLI:** The `typst` command must be available in your system's PATH.
-   - [Installation Guide for Typst](https://github.com/typst/typst#installation)
+This package provides a programmatic way to build resumes by defining content in TypeScript and compiling it into Typst-powered PDFs. It is built for repeatable outputs, shared templates, and automation-friendly workflows.
 
-## Installation
+Features
+
+- Typst-based rendering: fast PDF generation with modern typesetting.
+- Type-safe schemas: structured resume data with strict TypeScript types.
+- Composable sections: extend, reorder, and template with minimal glue.
+- CLI-friendly: works well in CI/CD for automated resume builds.
+
+Technical stack
+
+| Component   | Technology |
+|-------------|------------|
+| Runtime     | Node.js (ESM) |
+| Language    | TypeScript |
+| PDF Engine  | Typst CLI |
+| Testing     | Vitest |
+
+Setup
+
+Requirements
+
+- Node.js v18 or higher
+- pnpm (preferred package manager)
+- Typst CLI (must be available on PATH)
+
+Install
 
 ```bash
 pnpm install bouajila-resume-generator
 ```
 
-## Usage
-
-### Basic Example
+Usage
 
 ```typescript
 import { compile, Resume, SectionType } from "bouajila-resume-generator";
@@ -59,21 +82,14 @@ const myResume: Resume = {
           endDate: "2022"
         }
       ]
-    },
-    // Add more sections like WorkExperience, Projects, Skills, etc.
+    }
   ]
 };
 
-// Compile to a file
 await compile(myResume, { outputPath: "./resume.pdf" });
-
-// Or get the buffer
-const { buffer } = await compile(myResume);
 ```
 
-### Advanced Usage: Generating Typst Source
-
-If you want to handle the compilation yourself or debug the output, you can generate the Typst source code directly:
+Generate Typst source
 
 ```typescript
 import { generateTypstSource } from "bouajila-resume-generator";
@@ -82,32 +98,28 @@ const typstCode = generateTypstSource(myResume);
 console.log(typstCode);
 ```
 
-## Documentation
+Development
 
-Run the documentation site locally:
+Scripts
 
-```bash
-pnpm run docs
-```
+- Build: `pnpm run build`
+- Typecheck: `pnpm run typecheck`
+- Dev (single run): `pnpm run dev`
+- Dev (watch): `pnpm run dev:watch`
+- Test: `pnpm run test`
+- Docs: `pnpm run docs`
 
-## Development
+Project structure
 
-### Scripts
+- `src/compiler`: Typst generation and CLI execution.
+- `types/`: Resume schema types.
+- `template/`: Typst libraries and assets.
+- `output/`: Default output for dev/test.
 
-- **Build:** `pnpm run build` - Transpiles TypeScript to JavaScript in `dist/`.
-- **Typecheck:** `pnpm run typecheck` - Runs the TypeScript compiler without emitting files.
-- **Dev (Single Run):** `pnpm run dev` - Compiles the mock resume to `output/resume.pdf`.
-- **Dev (Watch Mode):** `pnpm run dev:watch` - Watches for changes and re-runs the dev compilation.
-- **Test:** `pnpm run test` - Runs unit and integration tests using Vitest.
-- **Docs:** `pnpm run docs` - Starts the Docusaurus development server.
+Contributing
 
-### Project Structure
+This repository is optimized for agentic workflows. Read `AGENTS.md` for contribution conventions and TypeScript rules.
 
-- `src/compiler`: Core logic for generating Typst code and calling the CLI.
-- `types/`: TypeScript definitions for the resume schema.
-- `template/`: Typst library files and icons used for styling.
-- `output/`: Default directory for generated files during tests.
-
-## License
+License
 
 ISC

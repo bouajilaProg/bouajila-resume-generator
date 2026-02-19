@@ -1,3 +1,8 @@
+# secrets
+.env
+
+
+
 # Ignore build output directory
 build/
 dist/
@@ -7,10 +12,13 @@ output/
 # node_modules directory
 node_modules/
 
-# Temp compilation files
+# Temp files
 .tmp-compile-*
+temp.*
 
 
 # todo
 todo.md
+
+
 
