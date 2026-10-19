@@ -63,6 +63,7 @@
   pad(left: padding)[
       #grid(
         columns: (1fr, auto),
+        column-gutter: 12pt,
         row-gutter: 5pt,
         ..for i in range(max-rows) {
           (
